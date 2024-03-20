@@ -1,7 +1,7 @@
 import {Grid, Link, Typography} from "@mui/material";
 import {Level} from "../../models/Level";
 import {levelCardStyles} from "./levelCardStyles";
-import {ButtonStyled} from "../common/button/ButtonStyled";
+import {ButtonStyled} from "../common/Button/ButtonStyled";
 import {ButtonVariant} from "../../utils/enums/button/ButtonVariant";
 import { ArrowForward } from "@mui/icons-material";
 import { routes } from "../../constants/routes";
@@ -19,8 +19,8 @@ export const LevelCard = ({ level } : LevelCardProps) => {
                     <Typography sx={levelCardStyles.code}>{level.code}</Typography>
                 </Grid>
                 <Grid item>
-                    <Link component={RouterLink} to={routes.levels.view.url(level.id)}>
-                        <Typography variant='h3'>{level.name}</Typography>
+                    <Link variant='h3' component={RouterLink} to={routes.levels.view.url(level.id)}>
+                        {level.name}
                     </Link>
                 </Grid>
             </Grid>

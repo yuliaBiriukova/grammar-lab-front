@@ -1,13 +1,14 @@
 import {Grid, Link, Typography} from "@mui/material";
 import { levelsMenuStyles } from "./levelsMenuStyles";
 import {routes} from "../../constants/routes";
-import {Link as RouterLink} from "react-router-dom";
 import React, {useEffect, useState} from "react";
 import {Level} from "../../models/Level";
 import {LevelService} from "../../services/LevelService";
 import {AuthService} from "../../services/AuthService";
 import {UserRole} from "../../utils/enums/auth/UserRole";
 import {Add} from "@mui/icons-material";
+import {LevelsMenuItem} from "./LevelsMenuItem";
+import {Link as RouterLink} from "react-router-dom";
 
 export const LevelsMenu = () => {
     const [levels, setLevels] = useState<Level[]>();
@@ -27,11 +28,7 @@ export const LevelsMenu = () => {
     }, []);
 
     let levelsLinks = levels?.map(level => (
-        <Grid item key={level.id}>
-            <Link to={routes.levels.view.url(level.id)} component={RouterLink} >
-                {level.code}: {level.name}
-            </Link>
-        </Grid>
+        <LevelsMenuItem key={level.id} level={level}/>
     ));
 
     return (

@@ -31,5 +31,5 @@ export const LevelCardsList = () => {
                 {levelCards}
             </Grid>
         </Grid>
-    )
+    );
 }

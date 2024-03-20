@@ -2,13 +2,13 @@ import {Grid, Typography} from "@mui/material";
 import {useNavigate} from "react-router-dom";
 import {routes} from "../../constants/routes";
 import React, {ChangeEvent, useState} from "react";
-import {TextInputField} from "../../components/common/inputs/TextFieldInput";
-import {PasswordInput} from "../../components/common/inputs/PasswordInput";
+import {TextInputField} from "../../components/common/TextField/TextFieldInput";
+import {PasswordInput} from "../../components/common/TextField/PasswordInput";
 import {Api} from "../../utils/axiosApi";
 import {apiEndpoints} from "../../constants/apiEndpoints";
 import {loginStyles} from "./loginPageStyles";
-import {TextInputLabel} from "../../components/common/inputs/TextFieldLabel";
-import {ButtonStyled} from "../../components/common/button/ButtonStyled";
+import {TextInputLabel} from "../../components/common/TextField/TextFieldLabel";
+import {ButtonStyled} from "../../components/common/Button/ButtonStyled";
 import {ButtonVariant} from "../../utils/enums/button/ButtonVariant";
 import {AuthService} from "../../services/AuthService";
 
