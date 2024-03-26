@@ -5,7 +5,7 @@ import {loginStyles} from "../LoginPage/loginPageStyles";
 import {ButtonStyled} from "../../components/common/Button/ButtonStyled";
 import {ButtonVariant} from "../../utils/enums/button/ButtonVariant";
 import React, {ChangeEvent, useState} from "react";
-import {useNavigate, useParams} from "react-router-dom";
+import {Link, useNavigate, useParams} from "react-router-dom";
 import {Api} from "../../utils/axiosApi";
 import {apiEndpoints} from "../../constants/apiEndpoints";
 import {routes} from "../../constants/routes";
@@ -127,9 +127,11 @@ export const AddTopicPage = () => {
                     </Grid>
                     <Grid item container columnSpacing={3}>
                         <Grid item>
-                            <ButtonStyled variant={ButtonVariant.Outlined}>
-                                Назад
-                            </ButtonStyled>
+                            <Link to={routes.levels.view.url(parseInt(levelId as string))}>
+                                <ButtonStyled variant={ButtonVariant.Outlined}>
+                                    Назад
+                                </ButtonStyled>
+                            </Link>
                         </Grid>
                         <Grid item>
                             <ButtonStyled variant={ButtonVariant.Contained} onClick={handleSubmit}>

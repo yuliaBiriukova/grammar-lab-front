@@ -24,9 +24,11 @@ export const Header = () => {
         <Grid item container justifyContent='center' sx={headerStyles.container}>
             <Grid container sx={headerStyles.content} alignItems='center' justifyContent='space-between'>
                 <Grid item sx={headerStyles.logoContainer}>
-                    <Typography sx={headerStyles.logo}>
-                        GrammarLab
-                    </Typography>
+                    <Link to={routes.home} component={RouterLink}>
+                        <Typography sx={headerStyles.logo}>
+                            GrammarLab
+                        </Typography>
+                    </Link>
                 </Grid>
                 <Grid item container justifyContent='space-between' xs>
                     <Grid item container columnSpacing={3} xs='auto'>

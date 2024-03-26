@@ -6,6 +6,7 @@ import { routes } from "../../constants/routes";
 import {LevelCardsList} from "../../components/LevelCardsList/LevelCardsList";
 import {useEffect, useState} from "react";
 import {AccountService} from "../../services/AccountService";
+import { apiEndpoints } from "../../constants/apiEndpoints";
 
 export const HomePage = () => {
     const [userLevelCode, setUserLevelCode] = useState<string>();
@@ -13,8 +14,10 @@ export const HomePage = () => {
     useEffect(() => {
         const getUserLevelCode = async () => {
             const currentAccount = await AccountService.getCurrentAccount();
-            setUserLevelCode(currentAccount.levelCode ?? 'Невизначений');
+            setUserLevelCode(currentAccount?.levelCode ?? 'Невизначений');
         };
+
+        console.log(apiEndpoints.topics.search("bla"));
 
         getUserLevelCode();
     }, []);
