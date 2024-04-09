@@ -2,8 +2,8 @@ import {Link as RouterLink, useNavigate} from "react-router-dom";
 import {routes} from "../../../constants/routes";
 import React, {useEffect, useState} from "react";
 import {Grid, Link, Typography} from "@mui/material";
-import {headerStyles} from "./headerStyles";
-import {AuthService} from "../../../services/AuthService";
+import {headerStyles} from "./header.styles";
+import {checkUserHasRole, logout} from "../../../services/auth.service";
 import {UserRole} from "../../../utils/enums/auth/UserRole";
 
 export const Header = () => {
@@ -12,11 +12,11 @@ export const Header = () => {
     const [isAdmin, setIsAdmin] = useState(false);
 
     useEffect(() => {
-        setIsAdmin(AuthService.checkHasRole(UserRole.Admin));
+        setIsAdmin(checkUserHasRole(UserRole.Admin));
     }, []);
 
     const onLogoutClick = () => {
-        AuthService.logout();
+        logout();
         navigate(routes.login);
     }
 
@@ -52,7 +52,7 @@ export const Header = () => {
                     </Grid>
                     <Grid item container columnSpacing={3} justifyContent='end' xs={3}>
                         <Grid item>
-                            <Link to={routes.home} component={RouterLink} >
+                            <Link to={routes.account} component={RouterLink} >
                                 Мій акаунт
                             </Link>
                         </Grid>

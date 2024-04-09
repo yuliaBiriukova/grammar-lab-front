@@ -1,30 +1,53 @@
 import React from "react";
-import {MainLayout} from "../components/common/Layout/MainLayout";
+import {MainLayout} from "../components/common/Layout/MainLayout/MainLayout";
 import {BrowserRouter, Navigate, Route, Routes} from "react-router-dom";
 import {PrivateRoute} from "./PrivateRoute";
 import {HomePage} from "../pages/HomePage/HomePage";
 import {LoginPage} from "../pages/LoginPage/LoginPage";
 import {routes} from "../constants/routes";
 import {AxiosInterceptor} from "../utils/axiosApi";
-import {LevelPage} from "../pages/LevelPage/LevelPage";
-import {TopicPage} from "../pages/TopicPage/TopicPage";
-import {AddTopicPage} from "../pages/AddTopicPage/AddTopicPage";
-import {TopicExercisesPage} from "../pages/TopicExercisesPage";
+import {LevelPage} from "../pages/Level/LevelPage/LevelPage";
+import {TopicPage} from "../pages/Topic/TopicPage/TopicPage";
+import {AddTopicPage} from "../pages/Topic/AddTopicPage/AddTopicPage";
+import {TopicExercisesPage} from "../pages/Exercise/TopicExercisesPage/TopicExercisesPage";
 import {UserRole} from "../utils/enums/auth/UserRole";
+import {CatalogLayout} from "../components/common/Layout/CatalogLayout/CatalogLayout";
+import {AccountPage} from "../pages/Account/AccountPage";
+import { ExercisePage } from "../pages/Exercise/ExercisePage/ExercisePage";
+import {AddLevelPage} from "../pages/Level/AddLevelPage/AddLevelPage";
+import {EditLevelPage} from "../pages/Level/EditLevelPage/EditLevelPage";
+import {EditTopicPage} from "../pages/Topic/EditTopicPage/EditTopicPage";
+import {AddExercisePage} from "../pages/Exercise/AddExercisePage/AddExercisePage";
+import {EditExercisePage} from "../pages/Exercise/EditExercisePage/EditExercisePage";
+import {TestPage} from "../pages/Test/TestPage/TestPage";
+import {CompletedTestResultPage} from "../pages/Test/CompletedTestResultPage/CompletedTestResultPage";
 
 export const AppRouter = () => (
     <BrowserRouter>
         <AxiosInterceptor>
             <Routes>
                 <Route element={<MainLayout />} >
-                    <Route element={<PrivateRoute />} >
-                        <Route path={routes.home} element={ <HomePage /> } />
-                        <Route path={routes.levels.view.path} element={ <LevelPage /> } />
-                        <Route path={routes.topics.view.path} element={ <TopicPage /> } />
-                        <Route path={routes.topics.new.path} element={ <AddTopicPage /> } />
+                    <Route element={<CatalogLayout />}>
+                        <Route element={<PrivateRoute />} >
+                            <Route path={routes.home} element={ <HomePage /> } />
+                            <Route path={routes.levels.view.path} element={ <LevelPage /> } />
+                            <Route path={routes.topics.view.path} element={ <TopicPage /> } />
+                            <Route path={routes.topics.test.path} element={ <TestPage /> } />
+                            <Route path={routes.topics.test.result.path} element={ <CompletedTestResultPage /> } />
+                        </Route>
+                        <Route element={<PrivateRoute allowedRoles={ [UserRole.Admin, UserRole.Teacher] }/>} >
+                            <Route path={routes.levels.new} element={ <AddLevelPage /> } />
+                            <Route path={routes.levels.edit.path} element={ <EditLevelPage /> } />
+                            <Route path={routes.topics.new.path} element={ <AddTopicPage /> } />
+                            <Route path={routes.topics.edit.path} element={ <EditTopicPage /> } />
+                            <Route path={routes.exercises.list.path} element={ <TopicExercisesPage /> } />
+                            <Route path={routes.exercises.view.path} element={ <ExercisePage /> } />
+                            <Route path={routes.exercises.new.path} element={ <AddExercisePage /> } />
+                            <Route path={routes.exercises.edit.path} element={ <EditExercisePage /> } />
+                        </Route>
                     </Route>
-                    <Route element={<PrivateRoute allowedRoles={ [UserRole.Admin, UserRole.Teacher] }/>} >
-                        <Route path={routes.exercises.list.path} element={ <TopicExercisesPage /> } />
+                    <Route element={<PrivateRoute />} >
+                        <Route path={routes.account} element={ <AccountPage /> } />
                     </Route>
                 </Route>
                 <Route path={routes.login} element={<LoginPage />} />

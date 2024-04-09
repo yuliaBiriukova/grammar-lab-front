@@ -2,15 +2,15 @@ import {Grid, Typography} from "@mui/material";
 import {useNavigate} from "react-router-dom";
 import {routes} from "../../constants/routes";
 import React, {ChangeEvent, useState} from "react";
-import {TextInputField} from "../../components/common/TextField/TextFieldInput";
+import {TextInputField} from "../../components/common/TextField/TextInputField";
 import {PasswordInput} from "../../components/common/TextField/PasswordInput";
 import {Api} from "../../utils/axiosApi";
 import {apiEndpoints} from "../../constants/apiEndpoints";
-import {loginStyles} from "./loginPageStyles";
-import {TextInputLabel} from "../../components/common/TextField/TextFieldLabel";
+import {loginStyles} from "./login.styles";
+import {TextInputLabel} from "../../components/common/TextField/TextInputLabel";
 import {ButtonStyled} from "../../components/common/Button/ButtonStyled";
 import {ButtonVariant} from "../../utils/enums/button/ButtonVariant";
-import {AuthService} from "../../services/AuthService";
+import {login} from "../../services/auth.service";
 
 export const LoginPage = () => {
     const [email, setEmail] = useState('');
@@ -55,11 +55,11 @@ export const LoginPage = () => {
             );
 
             if(response.status === 400) {
-                setLoginError(response.data.message);
+                setLoginError(response.data.error.message);
                 return;
             }
 
-            AuthService.login({
+            login({
                 userToken: response.data.accessToken,
                 userRole: response.data.roles,
             });

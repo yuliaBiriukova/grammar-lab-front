@@ -23,9 +23,9 @@ export const apiEndpoints = {
         main: 'exercises',
         byId: (id: number) => `exercises/${id}`,
     },
-    completedTests: {
-        main: 'completedTests',
-        best: 'completedTests/best',
-        byId: (id: number) => `completedTests/${id}`,
+    testResults: {
+        main: 'testresults',
+        best: 'testresults/best',
+        byId: (id: number) => `testresults/${id}`,
     },
 }

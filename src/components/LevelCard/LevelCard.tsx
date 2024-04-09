@@ -1,6 +1,6 @@
 import {Grid, Link, Typography} from "@mui/material";
-import {Level} from "../../models/Level";
-import {levelCardStyles} from "./levelCardStyles";
+import {Level} from "../../models/Level/Level";
+import {levelCardStyles} from "./level-card.styles";
 import {ButtonStyled} from "../common/Button/ButtonStyled";
 import {ButtonVariant} from "../../utils/enums/button/ButtonVariant";
 import { ArrowForward } from "@mui/icons-material";

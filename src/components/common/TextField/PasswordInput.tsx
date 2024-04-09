@@ -1,8 +1,8 @@
 import React, {ChangeEventHandler, useState} from "react";
-import {TextInputField} from "./TextFieldInput";
+import {TextInputField} from "./TextInputField";
 import {IconButton, InputAdornment, TextFieldProps} from "@mui/material";
 import {Visibility, VisibilityOff} from "@mui/icons-material";
-import {inputStyles} from "./inputStyles";
+import {inputStyles} from "./input.styles";
 
 interface PasswordInputProps {
     password: string,

@@ -1,11 +1,11 @@
-import {Topic} from "../../models/Topic";
+import {Topic} from "../../models/Topic/Topic";
 import {Grid, Link} from "@mui/material";
 import {Link as RouterLink} from "react-router-dom";
 import {routes} from "../../constants/routes";
 import {ButtonStyled} from "../common/Button/ButtonStyled";
 import {ButtonVariant} from "../../utils/enums/button/ButtonVariant";
 import {ArrowForward} from "@mui/icons-material";
-import {topicCardStyles} from "./topicCardStyles";
+import {topicCardStyles} from "./topic-card.styles";
 
 interface TopicCardProps {
     topic: Topic;

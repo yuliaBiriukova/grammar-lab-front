@@ -1,6 +1,6 @@
-import {Topic} from "../../models/Topic";
+import {Topic} from "../../models/Topic/Topic";
 import {Grid, Typography} from "@mui/material";
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {TopicCard} from "../TopicCard/TopicCard";
 
 interface TopicCardsListProps {
@@ -9,13 +9,17 @@ interface TopicCardsListProps {
 
 export const TopicCardsList = ({ topics } : TopicCardsListProps) => {
 
-    const hasNoTopics = topics === undefined || topics.length === 0;
+    const [hasNoTopics, setHasNoTopics] = useState(false);
 
     let topicCards = topics?.map(topic => (
         <Grid item key={topic.id}>
             <TopicCard topic={topic} />
         </Grid>
     ));
+
+    useEffect(() => {
+        setHasNoTopics(topics === undefined || topics.length === 0);
+    }, [topics]);
 
     return (
         <Grid item container direction='column' rowSpacing={3}>
@@ -28,8 +32,10 @@ export const TopicCardsList = ({ topics } : TopicCardsListProps) => {
                 </Grid>
             }
             { !hasNoTopics &&
-                <Grid item container direction='column' rowSpacing={2}>
-                    {topicCards}
+                <Grid item>
+                    <Grid container direction='column' rowSpacing={2}>
+                        {topicCards}
+                    </Grid>
                 </Grid>
             }
         </Grid>

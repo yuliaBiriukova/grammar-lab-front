@@ -1,24 +1,27 @@
 import React from "react";
-import {Level} from "../../models/Level";
 import {Grid, Link} from "@mui/material";
 import {routes} from "../../constants/routes";
 import {Link as RouterLink, useParams} from "react-router-dom";
-import {levelsMenuStyles} from "./levelsMenuStyles";
+import {levelsMenuStyles} from "./levels-menu.styles";
+import {selectLevelById} from "../../features/levels/levelsSlice";
+import {useAppSelector} from "../../app/hooks";
 
 interface LevelsMenuItemProps {
-    level: Level;
+    levelId: number;
 }
 
-export const LevelsMenuItem = ({ level } : LevelsMenuItemProps)=> {
+export const LevelsMenuItem = ({ levelId: propLevelId } : LevelsMenuItemProps)=> {
     const { levelId } = useParams();
 
-    const menuItemIsActive = parseInt(levelId as string) === level.id;
-    const sx = menuItemIsActive ? levelsMenuStyles.linkActive : {};
+    const level = useAppSelector(state => selectLevelById(state, propLevelId));
+
+    const menuItemIsActive = parseInt(levelId as string) === propLevelId;
+    const linkStyle = menuItemIsActive ? levelsMenuStyles.linkActive : {};
 
     return (
-        <Grid item key={level.id}>
-            <Link to={routes.levels.view.url(level.id)} component={RouterLink} sx={sx}>
-                {level.code}: {level.name}
+        <Grid item key={level?.id}>
+            <Link to={routes.levels.view.url(propLevelId)} component={RouterLink} sx={linkStyle}>
+                {level?.code}: {level?.name}
             </Link>
         </Grid>
     );

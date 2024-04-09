@@ -1,7 +1,7 @@
 import {Grid, Typography} from "@mui/material"
 import React, {useEffect, useState} from "react";
-import {Level} from "../../models/Level";
-import {LevelService} from "../../services/LevelService";
+import {Level} from "../../models/Level/Level";
+import {getAllLevels} from "../../services/level.service";
 import {LevelCard} from "../LevelCard/LevelCard";
 
 export const LevelCardsList = () => {
@@ -9,7 +9,7 @@ export const LevelCardsList = () => {
 
     useEffect(() => {
         const fetchLevels = async () => {
-            const levelsData = await LevelService.getLevels();
+            const levelsData = await getAllLevels();
             setLevels(levelsData);
         };
 

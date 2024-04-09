@@ -1,6 +1,6 @@
 import {Navigate, Outlet} from "react-router-dom";
 import React from "react";
-import {AuthService} from "../services/AuthService";
+import {checkIsUserAuthenticated, getCurrentUserRoles} from "../services/auth.service";
 import {routes} from "../constants/routes";
 
 interface PrivateRouteProps {
@@ -8,8 +8,8 @@ interface PrivateRouteProps {
 }
 
 export const PrivateRoute = ({ allowedRoles } : PrivateRouteProps) => {
-    const isAuthenticated = AuthService.checkIsAuthenticated();
-    const userRoles = AuthService.getUserRoles();
+    const isAuthenticated = checkIsUserAuthenticated();
+    const userRoles = getCurrentUserRoles();
 
     const checkIsAllowed = () => {
         if (!allowedRoles || allowedRoles.length === 0) {

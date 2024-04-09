@@ -21,7 +21,19 @@ export const routes = {
         new: {
             path: '/levels/:levelId/topics/new',
             url: (levelId: number) => `/levels/${levelId}/topics/new`
-        }
+        },
+        edit: {
+            path: '/topics/:id/edit',
+            url: (id: number) => `/topics/${id}/edit`
+        },
+        test: {
+            path: '/topics/:topicId/test',
+            url: (topicId: number) => `/topics/${topicId}/test`,
+            result: {
+                path: '/topics/:topicId/test/result',
+                url: (topicId: number) => `/topics/${topicId}/test/result`,
+            },
+        },
     },
     exercises: {
         list: {
@@ -35,6 +47,14 @@ export const routes = {
         new: {
             path: '/topics/:topicId/exercises/new',
             url: (topicId: number) => `/topics/${topicId}/exercises/new`
-        }
-    }
+        },
+        edit: {
+            path: '/exercises/:id/edit',
+            url: (id: number) => `/exercises/${id}/edit`
+        },
+    },
+    testResults: {
+        all: '/results/all',
+    },
+    account: '/account',
 }

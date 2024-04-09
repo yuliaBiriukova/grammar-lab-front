@@ -19,30 +19,42 @@ export const theme = createTheme({
             fontWeight: 600,
             margin: 0,
             hyphens: 'auto',
+            wordWrap: 'break-word',
         },
         h2: {
             fontSize: 24,
             fontWeight: 500,
             margin: 0,
             hyphens: 'auto',
+            wordWrap: 'break-word',
         },
         h3: {
             fontSize: 18,
             fontWeight: 600,
             margin: 0,
             hyphens: 'auto',
+            wordWrap: 'break-word',
         },
         h4: {
             fontSize: 16,
             fontWeight: 600,
             margin: 0,
             hyphens: 'auto',
+            wordWrap: 'break-word',
         },
         body1: {
             fontSize: 16,
             fontWeight: 400,
             margin: 0,
             hyphens: 'auto',
+            wordWrap: 'break-word',
+        },
+        body2: {
+            fontSize: 14,
+            fontWeight: 400,
+            margin: 0,
+            hyphens: 'auto',
+            wordWrap: 'break-word',
         }
     },
     components: {

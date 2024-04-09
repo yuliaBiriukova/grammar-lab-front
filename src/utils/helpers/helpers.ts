@@ -1,17 +1,9 @@
-const  handleServerErrors = (e: any) => {
+export const  handleServerErrors = (e: any) => {
     if (e.response?.data) {
-        const { data } = e.response;
-
-        const { message } = data;
-
-        if (message) {
-            return e.response ;
-        }
+        return e.response;
     }
 
     return e;
 }
 
-export const helpers = {
-    handleServerErrors,
-}
+export const checkIsStringEmpty = (value: string) => value.trim() === '';

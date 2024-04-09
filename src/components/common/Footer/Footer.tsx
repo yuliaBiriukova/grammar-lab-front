@@ -1,6 +1,8 @@
 import React from "react";
-import {Grid, Typography} from "@mui/material";
-import {footerStyles} from "./footerStyles";
+import {Grid, Typography, Link} from "@mui/material";
+import {footerStyles} from "./footer.styles";
+import {Link as RouterLink} from "react-router-dom";
+import {routes} from "../../../constants/routes";
 
 export const Footer = () => {
     const currentYear = new Date().getFullYear();
@@ -9,9 +11,11 @@ export const Footer = () => {
         <Grid item container justifyContent='center' sx={footerStyles.container}>
             <Grid container sx={footerStyles.content} alignItems='center' justifyContent='space-between'>
                 <Grid item>
-                    <Typography sx={footerStyles.logo}>
-                        GrammarLab
-                    </Typography>
+                    <Link to={routes.home} component={RouterLink}>
+                        <Typography sx={footerStyles.logo}>
+                            GrammarLab
+                        </Typography>
+                    </Link>
                 </Grid>
                 <Grid item>
                     <Typography sx={footerStyles.copyright}>

@@ -1,12 +1,12 @@
 import axios from "axios";
 import qs from "qs";
 import {apiBaseUrl} from "../constants/apiEndpoints";
-import {helpers} from "./helpers/helpers";
+import {handleServerErrors} from "./helpers/helpers";
 import {useNavigate} from "react-router-dom";
 import {useEffect, useState} from "react";
 import {useAppDispatch} from "../app/hooks";
 import {routes} from "../constants/routes";
-import {AuthService} from "../services/AuthService";
+import {getAccessToken, logout} from "../services/auth.service";
 
 const headers = {
     "Content-Type": "application/json",
@@ -28,7 +28,7 @@ export const AxiosInterceptor = ({ children }: any) => {
 
     useEffect(() => {
         const requestInterceptor = Api.interceptors.request.use(config => {
-            let accessToken = AuthService.getToken();
+            let accessToken = getAccessToken();
 
             if (accessToken) {
                 config.headers['Authorization'] = `Bearer ${accessToken}`;
@@ -43,7 +43,7 @@ export const AxiosInterceptor = ({ children }: any) => {
                 if (err.response) {
                     switch (err.response.status) {
                         case 401:
-                            AuthService.logout();
+                            logout();
                             navigate(routes.login);
                             break;
 
@@ -51,7 +51,7 @@ export const AxiosInterceptor = ({ children }: any) => {
                             break;
                     }
                 }
-                return helpers.handleServerErrors(err);
+                return handleServerErrors(err);
             }
         );
 
