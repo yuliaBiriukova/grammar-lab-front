@@ -1,5 +1,6 @@
 import {InputLabel, InputLabelProps} from "@mui/material";
 import {theme} from "../../../utils/theme";
+import {colors} from "../../../constants/colors";
 
 export const TextInputLabel = (props: InputLabelProps) => {
     const { sx, children, ...other } = props;
@@ -10,7 +11,7 @@ export const TextInputLabel = (props: InputLabelProps) => {
             fontWeight: 500,
         },
         '& .MuiInputLabel-asterisk': {
-            color: '#B81A14',
+            color: colors.error,
         },
         ...sx,
     };

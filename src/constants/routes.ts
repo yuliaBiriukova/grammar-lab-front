@@ -55,6 +55,18 @@ export const routes = {
     },
     testResults: {
         all: '/results/all',
+        byLevel: {
+            path: '/levels/:levelId/results',
+            url: (levelId: number) => `/levels/${levelId}/results`
+        },
+        byTopic: {
+            path: '/topics/:topicId/results',
+            url: (topicId: number) => `/topics/${topicId}/results`
+        },
+        view: {
+            path: '/results/:id',
+            url: (id: number) => `/results/${id}`
+        },
     },
     account: '/account',
 }

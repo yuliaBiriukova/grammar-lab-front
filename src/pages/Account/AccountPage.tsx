@@ -34,17 +34,19 @@ export const AccountPage = () => {
     }, []);
 
     return (
-        <Grid item container justifyContent='center' sx={catalogStyles.container}>
-            <Grid item container direction='column' rowSpacing={4} sx={catalogStyles.content}>
-                <Grid item>
-                    <Typography variant='h1'>Мій акаунт</Typography>
+        user ? (
+            <Grid item container justifyContent='center' sx={catalogStyles.container}>
+                <Grid item container direction='column' rowSpacing={4} sx={catalogStyles.content}>
+                    <Grid item>
+                        <Typography variant='h1'>Мій акаунт</Typography>
+                    </Grid>
+                    <LabeledTextDisplay label={accountPageLabels.email} value={user.email} />
+                    <LabeledTextDisplay label={accountPageLabels.firstName} value={user.firstName} />
+                    <LabeledTextDisplay label={accountPageLabels.lastName} value={user.lastName} />
+                    <LabeledTextDisplay label={accountPageLabels.level} value={levelDisplayName} />
+                    <LabeledTextDisplay label={accountPageLabels.role} value={user.roles.toString()} />
                 </Grid>
-                <LabeledTextDisplay label={accountPageLabels.email} value={user?.email} />
-                <LabeledTextDisplay label={accountPageLabels.firstName} value={user?.firstName} />
-                <LabeledTextDisplay label={accountPageLabels.lastName} value={user?.lastName} />
-                <LabeledTextDisplay label={accountPageLabels.level} value={levelDisplayName} />
-                <LabeledTextDisplay label={accountPageLabels.role} value={user?.roles.toString()} />
             </Grid>
-        </Grid>
+        ) : null
     );
 }

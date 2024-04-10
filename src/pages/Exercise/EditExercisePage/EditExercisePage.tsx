@@ -21,6 +21,7 @@ export const EditExercisePage = () => {
         task: false,
         answer: false,
     });
+    const [isExerciseLoaded, setIsExerciseLoaded] = useState(false);
 
     const navigate = useNavigate();
 
@@ -42,6 +43,7 @@ export const EditExercisePage = () => {
             setType(exercise.type);
             setTask(exercise.task);
             setAnswer(exercise.answer);
+            setIsExerciseLoaded(true);
         }
     }, [exercise]);
 
@@ -91,26 +93,27 @@ export const EditExercisePage = () => {
         }
     }
 
-
     return (
-        <Grid item container direction='column' rowSpacing={4} xs>
-            <Grid item>
-                <Typography variant='h1'>Нове завдання</Typography>
+        exercise && isExerciseLoaded ? (
+            <Grid item container direction='column' rowSpacing={4} xs>
+                <Grid item>
+                    <Typography variant='h1'>Нове завдання</Typography>
+                </Grid>
+                <Grid item>
+                    <ExerciseForm
+                        type={type}
+                        setType={setType}
+                        task={task}
+                        setTask={setTask}
+                        answer={answer}
+                        setAnswer={setAnswer}
+                        validationErrors={validationErrors}
+                        setValidationErrors={setValidationErrors}
+                        handleSubmit={handleSubmit}
+                        goBackLink={routes.exercises.view.url(exercise.id)}
+                    />
+                </Grid>
             </Grid>
-            <Grid item>
-                <ExerciseForm
-                    type={type}
-                    setType={setType}
-                    task={task}
-                    setTask={setTask}
-                    answer={answer}
-                    setAnswer={setAnswer}
-                    validationErrors={validationErrors}
-                    setValidationErrors={setValidationErrors}
-                    handleSubmit={handleSubmit}
-                    goBackLink={routes.exercises.view.url(parseInt(id as string))}
-                />
-            </Grid>
-        </Grid>
+        ) : null
     );
 }

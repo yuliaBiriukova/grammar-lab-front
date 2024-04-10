@@ -12,12 +12,12 @@ export const EditTopicPage = () => {
     const [topic, setTopic] = useState<Topic>();
     const [name, setName] = useState<string>('');
     const [content, setContent] = useState<string>('');
-
     const [apiError, setApiError] = useState('');
     const [validationErrors, setValidationErrors] = useState({
         name: false,
         content: false,
     });
+    const [isTopicLoaded, setIsTopicLoaded] = useState(false);
 
     const navigate = useNavigate();
 
@@ -38,6 +38,7 @@ export const EditTopicPage = () => {
         if(topic) {
             setName(topic.name);
             setContent(topic.content);
+            setIsTopicLoaded(true);
         }
     }, [topic]);
 
@@ -80,22 +81,24 @@ export const EditTopicPage = () => {
     }
 
     return (
-        <Grid item container direction='column' rowSpacing={4} xs>
-            <Grid item>
-                <Typography variant='h1'>Редагування теми</Typography>
+        topic && isTopicLoaded ? (
+            <Grid item container direction='column' rowSpacing={4} xs>
+                <Grid item>
+                    <Typography variant='h1'>Редагування теми</Typography>
+                </Grid>
+                <Grid item>
+                    <TopicForm
+                        name={name}
+                        setName={setName}
+                        content={content}
+                        setContent={setContent}
+                        validationErrors={validationErrors}
+                        setValidationErrors={setValidationErrors}
+                        handleSubmit={handleSubmit}
+                        goBackLink={routes.levels.view.url(topic.id)}
+                    />
+                </Grid>
             </Grid>
-            <Grid item>
-                <TopicForm
-                    name={name}
-                    setName={setName}
-                    content={content}
-                    setContent={setContent}
-                    validationErrors={validationErrors}
-                    setValidationErrors={setValidationErrors}
-                    handleSubmit={handleSubmit}
-                    goBackLink={routes.levels.view.url(parseInt(id as string))}
-                />
-            </Grid>
-        </Grid>
+        ) : null
     );
 }

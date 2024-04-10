@@ -21,6 +21,11 @@ import {AddExercisePage} from "../pages/Exercise/AddExercisePage/AddExercisePage
 import {EditExercisePage} from "../pages/Exercise/EditExercisePage/EditExercisePage";
 import {TestPage} from "../pages/Test/TestPage/TestPage";
 import {CompletedTestResultPage} from "../pages/Test/CompletedTestResultPage/CompletedTestResultPage";
+import {TestResultsLayout} from "../components/common/Layout/TestResultsLayout/TestResultsLayout";
+import {LevelTestResultsPage} from "../pages/TestResults/LevelTestResultsPage/LevelTestResultsPage";
+import {TestResultsPage} from "../pages/TestResults/TestResultsPage/TestResultsPage";
+import {TopicTestResultsPage} from "../pages/TestResults/TopicTestResultsPage/TopicTestResultsPage";
+import {TestResultPage} from "../pages/TestResults/TestResultPage/TestResultPage";
 
 export const AppRouter = () => (
     <BrowserRouter>
@@ -44,6 +49,14 @@ export const AppRouter = () => (
                             <Route path={routes.exercises.view.path} element={ <ExercisePage /> } />
                             <Route path={routes.exercises.new.path} element={ <AddExercisePage /> } />
                             <Route path={routes.exercises.edit.path} element={ <EditExercisePage /> } />
+                        </Route>
+                    </Route>
+                    <Route element={<TestResultsLayout />}>
+                        <Route element={<PrivateRoute />} >
+                            <Route path={routes.testResults.byLevel.path} element={ <LevelTestResultsPage /> } />
+                            <Route path={routes.testResults.all} element={ <TestResultsPage /> } />
+                            <Route path={routes.testResults.byTopic.path} element={ <TopicTestResultsPage /> } />
+                            <Route path={routes.testResults.view.path} element={ <TestResultPage /> } />
                         </Route>
                     </Route>
                     <Route element={<PrivateRoute />} >

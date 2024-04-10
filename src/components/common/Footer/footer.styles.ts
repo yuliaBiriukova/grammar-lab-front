@@ -1,6 +1,8 @@
+import {colors} from "../../../constants/colors";
+
 export const footerStyles = {
     container: {
-        background: '#FCFCFC',
+        background: colors.backgroundWhite,
         height: 72,
         borderTop: '1px solid #E0E0E0',
     },
@@ -9,12 +11,12 @@ export const footerStyles = {
         maxWidth: 1440,
     },
     logo: {
-        color: '#BDBDBD',
+        color: colors.footerText,
         fontWeight: 800,
         fontSize: 24,
         fontFamily: 'Montserrat',
     },
     copyright: {
-        color: '#BDBDBD',
+        color: colors.footerText,
     }
 }

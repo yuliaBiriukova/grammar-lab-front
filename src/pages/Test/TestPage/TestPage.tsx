@@ -1,7 +1,7 @@
 import {Grid, Typography} from "@mui/material";
 import {routes} from "../../../constants/routes";
 import React, {useEffect, useState} from "react";
-import {useNavigate, useParams} from "react-router-dom";
+import {Link as RouterLink, useNavigate, useParams} from "react-router-dom";
 import {Exercise} from "../../../models/Exercise/Exercise";
 import {getTopicExercisesByTopicId} from "../../../services/exercise.service";
 import {getTopicById} from "../../../services/topic.service";
@@ -9,6 +9,8 @@ import {Topic} from "../../../models/Topic/Topic";
 import {NewTestResult} from "../../../models/TestResult/NewTestResult";
 import {TestForm} from "../../../components/TestForm/TestForm";
 import {addTestResultAsync} from "../../../services/testResult.service";
+import {ButtonStyled} from "../../../components/common/Button/ButtonStyled";
+import {ButtonVariant} from "../../../utils/enums/button/ButtonVariant";
 
 export const TestPage = () => {
     const { topicId } = useParams();
@@ -90,16 +92,33 @@ export const TestPage = () => {
                     <Typography variant='h1'>Тест {topic?.name}</Typography>
                 </Grid>
                 <Grid item >
-                    <TestForm
-                        topicId={parseInt(topicId as string)}
-                        exercises={exercises}
-                        userAnswers={userAnswers}
-                        setUserAnswers={setUserAnswers}
-                        validationErrors={answersValidationErrors}
-                        setValidationErrors={setAnswersValidationErrors}
-                        handleSubmit={handleSubmit}
-                        goBackLink={routes.topics.view.url(parseInt(topicId as string))}
-                    />
+                    {
+                        exercises.length ? (
+                            <TestForm
+                                topicId={parseInt(topicId as string)}
+                                exercises={exercises}
+                                userAnswers={userAnswers}
+                                setUserAnswers={setUserAnswers}
+                                validationErrors={answersValidationErrors}
+                                setValidationErrors={setAnswersValidationErrors}
+                                handleSubmit={handleSubmit}
+                                goBackLink={routes.topics.view.url(topic.id)}
+                            />
+                        ) : (
+                            <Grid container direction='column' rowSpacing={4}>
+                                <Grid item>
+                                    <Typography variant='body1'>Проходження тесту з цієї теми недоступне. Тема ще не має завдань для виконання.</Typography>
+                                </Grid>
+                                <Grid item>
+                                    <RouterLink to={routes.topics.view.url(topic.id)}>
+                                        <ButtonStyled variant={ButtonVariant.Contained}>
+                                            Повернутися до теми
+                                        </ButtonStyled>
+                                    </RouterLink>
+                                </Grid>
+                            </Grid>
+                        )
+                    }
                 </Grid>
             </Grid>
         ) : null

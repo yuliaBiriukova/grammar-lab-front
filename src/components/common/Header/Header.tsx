@@ -38,7 +38,7 @@ export const Header = () => {
                             </Link>
                         </Grid>
                         <Grid item>
-                            <Link to={routes.home} component={RouterLink}>
+                            <Link to={routes.testResults.all} component={RouterLink}>
                                 Мої результати
                             </Link>
                         </Grid>

@@ -1,13 +1,14 @@
-import {Grid, Typography} from "@mui/material";
+import {Grid, Typography, Link} from "@mui/material";
 import {routes} from "../../../constants/routes";
 import React, {useEffect, useState} from "react";
-import {Link, useLocation, useNavigate, useParams} from "react-router-dom";
-import {getTestResultById} from "../../../services/testResult.service";
+import {Link as RouterLink, useLocation, useNavigate, useParams} from "react-router-dom";
+import {getTestResultByIdAsync} from "../../../services/testResult.service";
 import {TestResult} from "../../../models/TestResult/TestResult";
 import {ButtonStyled} from "../../../components/common/Button/ButtonStyled";
 import {ButtonVariant} from "../../../utils/enums/button/ButtonVariant";
 import {TestResultPieChart} from "../../../components/TestResultPieChart/TestResultPieChart";
 import {TestResultExercisesList} from "../../../components/TestResultExercisesList/TestResultExercisesList";
+import {homeStyles} from "../../HomePage/home.styles";
 
 export const CompletedTestResultPage = () => {
     const { topicId } = useParams();
@@ -20,7 +21,7 @@ export const CompletedTestResultPage = () => {
 
     useEffect(() => {
         const fetchTestResult = async () => {
-            const testResultData = await getTestResultById(testResultId);
+            const testResultData = await getTestResultByIdAsync(testResultId);
 
             if(!testResultData) {
                 navigate(routes.home);
@@ -31,7 +32,7 @@ export const CompletedTestResultPage = () => {
         };
 
         fetchTestResult();
-    }, [topicId]);
+    }, []);
 
     useEffect(() => {
         if (!testResultId) {
@@ -66,24 +67,30 @@ export const CompletedTestResultPage = () => {
                                     <Typography variant='body1'>{resultLabel}</Typography>
                                 </Grid>
                                 <Grid item>
-                                    <Typography variant='body1'>Результати тесту будуть збережені в розділі Мої результати, де ви зможете передивитися їх пізніше. </Typography>
+                                    <Typography variant='body1'>
+                                        Результати тесту будуть збережені в розділі&nbsp;
+                                        <Link component={RouterLink} to={routes.testResults.all} sx={homeStyles.link}>
+                                            Мої результати
+                                        </Link>
+                                        , де ви зможете передивитися їх пізніше.
+                                    </Typography>
                                 </Grid>
                             </Grid>
                         </Grid>
                         <Grid item container columnSpacing={3}>
                             <Grid item>
-                                <Link to={routes.topics.test.url(testResult.topicId)}>
+                                <RouterLink to={routes.topics.test.url(testResult.topicId)}>
                                     <ButtonStyled variant={ButtonVariant.Outlined}>
                                         Пройти ще раз
                                     </ButtonStyled>
-                                </Link>
+                                </RouterLink>
                             </Grid>
                             <Grid item>
-                                <Link to={routes.topics.view.url(testResult.topicId)}>
+                                <RouterLink to={routes.topics.view.url(testResult.topicId)}>
                                     <ButtonStyled variant={ButtonVariant.Contained}>
                                         До теми
                                     </ButtonStyled>
-                                </Link>
+                                </RouterLink>
                             </Grid>
                         </Grid>
                     </Grid>
@@ -100,5 +107,5 @@ export const CompletedTestResultPage = () => {
                 </Grid>
             </Grid>
         ): null
-    )
+    );
 }

@@ -1,4 +1,5 @@
 import {Menu, styled} from "@mui/material";
+import {colors} from "../../../constants/colors";
 
 export const StyledMenu = styled(Menu)(() => ({
     '& .MuiPaper-root': {
@@ -13,7 +14,7 @@ export const StyledMenu = styled(Menu)(() => ({
         padding: '16px 24px',
         height: 48,
         '&:hover': {
-            background: '#f2f2f2',
+            background: colors.menuItemHover,
         },
     },
     '& .MuiSvgIcon-root': {

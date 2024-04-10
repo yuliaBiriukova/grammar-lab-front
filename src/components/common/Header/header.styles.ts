@@ -1,8 +1,8 @@
-import {theme} from "../../../utils/theme";
+import {colors} from "../../../constants/colors";
 
 export const headerStyles = {
     container: {
-        background: '#FCFCFC',
+        background: colors.backgroundWhite,
         height: 72,
         boxShadow: '0 4px 12px 0 rgba(0, 0, 0, 0.06)',
     },
@@ -14,7 +14,7 @@ export const headerStyles = {
         marginRight: '56px',
     },
     logo: {
-        color: theme.palette.primary.main,
+        color: colors.primary.main,
         fontWeight: 800,
         fontSize: 32,
         fontFamily: 'Montserrat',

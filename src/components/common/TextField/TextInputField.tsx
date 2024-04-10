@@ -1,5 +1,5 @@
 import {TextField, TextFieldProps} from "@mui/material";
-import {theme} from "../../../utils/theme";
+import {colors} from "../../../constants/colors";
 
 export const TextInputField = (props: TextFieldProps) => {
     const { sx, ...other } = props;
@@ -25,8 +25,8 @@ export const TextInputField = (props: TextFieldProps) => {
             border: '1px solid #E0E0E0',
         },
         '& .MuiInputBase-input': {
-            color: theme.palette.common.black,
-            background: '#FFFFFF',
+            color: colors.black,
+            background: colors.white,
             typography: 'body1',
             wordWrap: 'break-word',
             padding: '8px 16px',
@@ -38,7 +38,7 @@ export const TextInputField = (props: TextFieldProps) => {
             lineHeight: '140%',
         },
         '& .MuiFormHelperText-root.Mui-error': {
-            color: '#B81A14',
+            color: colors.error,
         },
         ...sx,
     };

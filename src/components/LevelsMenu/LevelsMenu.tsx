@@ -35,9 +35,11 @@ export const LevelsMenu = () => {
             <Grid container direction='column' rowSpacing={2}>
                 <Grid item container justifyContent='space-between' alignItems='center'>
                     <Grid item>
-                        <Typography variant='h3'>
-                            Каталог рівнів
-                        </Typography>
+                        <Link variant='h3' component={RouterLink} to={routes.home}>
+                            <Typography variant='h3'>
+                                Каталог рівнів
+                            </Typography>
+                        </Link>
                     </Grid>
                     { isAdmin &&
                         <Grid item height={24}>

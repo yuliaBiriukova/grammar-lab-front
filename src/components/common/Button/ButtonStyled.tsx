@@ -1,5 +1,5 @@
 import {Button, ButtonProps} from "@mui/material";
-import {theme} from "../../../utils/theme";
+import { colors } from "../../../constants/colors";
 
 export const ButtonStyled = (props: ButtonProps) => {
     const { sx, ...other } = props;
@@ -16,28 +16,28 @@ export const ButtonStyled = (props: ButtonProps) => {
             background: 'none',
             padding: 0,
             height: 24,
-            color: '#4F4F4F',
+            color: colors.linkButtonText,
             '&:hover': {
-                color: theme.palette.primary.main,
+                color: colors.primary.main,
                 background: 'none',
             },
         },
         '&.MuiButton-contained': {
-            color: theme.palette.common.white,
-            background: theme.palette.primary.main,
+            color: colors.white,
+            background: colors.primary.main,
             '&:hover': {
-                color: theme.palette.common.white,
-                background: theme.palette.primary.dark,
+                color: colors.white,
+                background: colors.primary.dark,
             },
         },
         '&.MuiButton-outlined': {
-            color: theme.palette.primary.main,
+            color: colors.primary.main,
             background: 'none',
-            border: `1px solid ${theme.palette.primary.main}`,
+            border: `1px solid ${colors.primary.main}`,
             '&:hover': {
-                color: theme.palette.primary.main,
-                background: theme.palette.primary.light,
-                border: `1px solid ${theme.palette.primary.main}`,
+                color: colors.primary.main,
+                background: colors.primary.light,
+                border: `1px solid ${colors.primary.main}`,
             },
         },
         ...sx,

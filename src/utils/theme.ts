@@ -1,16 +1,13 @@
 import {createTheme} from "@mui/material";
+import {colors} from "../constants/colors";
 
 export const theme = createTheme({
     palette: {
         common: {
-            white: '#FFFFFF',
-            black: '#1A1A1A'
+            white: colors.white,
+            black: colors.black,
         },
-        primary: {
-            main: '#1B8DF7',
-            light: '#ECF6FF',
-            dark: '#065AA8',
-        },
+        primary: colors.primary,
     },
     typography: {
         fontFamily: 'Inter',
@@ -63,9 +60,9 @@ export const theme = createTheme({
                 root: {
                     cursor: 'pointer',
                     textDecoration: 'none',
-                    color: '#1A1A1A',
+                    color: colors.black,
                     '&:hover': {
-                        color: '#1B8DF7',
+                        color: colors.primary.main,
                     },
                 },
             },

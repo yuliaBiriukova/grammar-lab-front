@@ -54,28 +54,31 @@ export const ExercisePage = () => {
                 return;
             }
             setExercise(exerciseData);
-
-            setExerciseTypeName(ExerciseType[exerciseData?.type!]);
+            setExerciseTypeName(ExerciseType[exerciseData.type]);
         };
 
         fetchExercise();
     }, [id]);
 
     return (
-        <Grid container direction='column' rowSpacing={4}>
-            <Grid item container justifyContent='space-between' alignItems='center'>
-                <Grid item xs>
-                    <Typography variant='h1'>{exercise?.task}</Typography>
+        exercise ? (
+            <Grid container direction='column' rowSpacing={4}>
+                <Grid item container justifyContent='space-between' alignItems='center'>
+                    <Grid item xs>
+                        <Typography variant='h1'>{exercise.task}</Typography>
+                    </Grid>
+                    { isAdmin &&
+                        <MoreDropDownMenu options={exerciseMenuOptions} />
+                    }
                 </Grid>
-                { isAdmin &&
-                    <MoreDropDownMenu options={exerciseMenuOptions} />
-                }
+                <Grid item>
+                    <Grid container direction='column' rowSpacing={4}>
+                        <LabeledTextDisplay label={exercisePageLabels.type} value={exerciseTypeName} />
+                        <LabeledTextDisplay label={exercisePageLabels.task} value={exercise.task} />
+                        <LabeledTextDisplay label={exercisePageLabels.answer} value={exercise.answer} />
+                    </Grid>
+                </Grid>
             </Grid>
-            <Grid item container direction='column' rowSpacing={4}>
-                <LabeledTextDisplay label={exercisePageLabels.type} value={exerciseTypeName} />
-                <LabeledTextDisplay label={exercisePageLabels.task} value={exercise?.task} />
-                <LabeledTextDisplay label={exercisePageLabels.answer} value={exercise?.answer} />
-            </Grid>
-        </Grid>
+        ) : null
     );
 }

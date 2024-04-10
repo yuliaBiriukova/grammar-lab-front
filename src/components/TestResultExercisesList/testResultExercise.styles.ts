@@ -1,8 +1,10 @@
+import { colors } from "../../constants/colors";
+
 export const testResultExerciseStyles = {
     correct: {
-        color: '#27BD51'
+        color: colors.success,
     },
     incorrect: {
-        color: '#EB5757'
+        color: colors.error,
     },
 }

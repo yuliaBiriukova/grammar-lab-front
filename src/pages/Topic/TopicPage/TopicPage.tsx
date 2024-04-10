@@ -59,52 +59,53 @@ export const TopicPage = () => {
     ];
 
     return (
-        <Grid container direction='column' rowSpacing='40px'>
-            <Grid item container justifyContent='space-between' alignItems='start'>
-                <Grid item xs>
-                    <Typography variant='h1'>{topic?.name}</Typography>
-                </Grid>
-                <Grid item container justifyContent='end' columnSpacing={2} xs={6}>
-                    { isAdmin &&
-                        <Grid item>
-                            <RouterLink to={routes.exercises.list.url(parseInt(id as string))}>
-                                <ButtonStyled variant={ButtonVariant.Outlined}>Завдання</ButtonStyled>
-                            </RouterLink>
-                        </Grid>
-                    }
-                    <Grid item>
-                        <RouterLink to={routes.topics.test.url(parseInt(id as string))}>
-                            <ButtonStyled variant={ButtonVariant.Contained}>Пройти тест</ButtonStyled>
-                        </RouterLink>
+        topic ? (
+            <Grid container direction='column' rowSpacing='40px'>
+                <Grid item container justifyContent='space-between' alignItems='start'>
+                    <Grid item xs>
+                        <Typography variant='h1'>{topic.name}</Typography>
                     </Grid>
-                    { isAdmin &&
+                    <Grid item container justifyContent='end' columnSpacing={2} xs={6}>
+                        { isAdmin &&
+                            <Grid item>
+                                <RouterLink to={routes.exercises.list.url(topic.id)}>
+                                    <ButtonStyled variant={ButtonVariant.Outlined}>Завдання</ButtonStyled>
+                                </RouterLink>
+                            </Grid>
+                        }
                         <Grid item>
-                            <MoreDropDownMenu options={topicMenuOptions} />
-                        </Grid>
-                    }
-                </Grid>
-            </Grid>
-            <Grid item>
-                <HtmlDisplay html={topic?.content as string} />
-            </Grid>
-            <Grid item>
-                <Grid container direction='column' rowSpacing={3}>
-                    <Grid item>
-                        <Typography variant='h2'>Тест</Typography>
-                    </Grid>
-                    <Grid item container direction='column' rowSpacing={2}>
-                        <Grid item>
-                            <Typography variant='body1'>Пройдіть цей тест, щоб перевірити вивчену граматику.</Typography>
-                        </Grid>
-                        <Grid item>
-                            <RouterLink to={routes.topics.test.url(parseInt(id as string))}>
+                            <RouterLink to={routes.topics.test.url(topic.id)}>
                                 <ButtonStyled variant={ButtonVariant.Contained}>Пройти тест</ButtonStyled>
                             </RouterLink>
                         </Grid>
+                        { isAdmin &&
+                            <Grid item>
+                                <MoreDropDownMenu options={topicMenuOptions} />
+                            </Grid>
+                        }
+                    </Grid>
+                </Grid>
+                <Grid item>
+                    <HtmlDisplay html={topic.content} />
+                </Grid>
+                <Grid item>
+                    <Grid container direction='column' rowSpacing={3}>
+                        <Grid item>
+                            <Typography variant='h2'>Тест</Typography>
+                        </Grid>
+                        <Grid item container direction='column' rowSpacing={2}>
+                            <Grid item>
+                                <Typography variant='body1'>Пройдіть цей тест, щоб перевірити вивчену граматику.</Typography>
+                            </Grid>
+                            <Grid item>
+                                <RouterLink to={routes.topics.test.url(topic.id)}>
+                                    <ButtonStyled variant={ButtonVariant.Contained}>Пройти тест</ButtonStyled>
+                                </RouterLink>
+                            </Grid>
+                        </Grid>
                     </Grid>
                 </Grid>
             </Grid>
-
-        </Grid>
-    )
+        ) : null
+    );
 }

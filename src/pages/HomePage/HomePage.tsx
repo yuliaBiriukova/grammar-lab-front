@@ -25,45 +25,47 @@ export const HomePage = () => {
     }, []);
 
     return (
-        <Grid container direction='column' rowSpacing='40px'>
-            <Grid item container direction='column' rowSpacing={3}>
+        userLevelCode ? (
+            <Grid container direction='column' rowSpacing='40px'>
+                <Grid item container direction='column' rowSpacing={3}>
+                    <Grid item>
+                        <Typography variant='h1'>Граматика з GrammarLab</Typography>
+                    </Grid>
+                    <Grid item container rowSpacing={2}>
+                        <Grid item>
+                            <Typography variant='body1'>
+                                Ваш поточний рівень володіння англійською мовою&nbsp;-&nbsp;<strong>{userLevelCode}</strong>.
+                            </Typography>
+                        </Grid>
+                        <Grid item>
+                            <Typography variant='body1'>
+                                Оберіть з каталогу рівнів ваш рівень та вивчайте теми граматики, визначені в ньому.
+                            </Typography>
+                        </Grid>
+                        <Grid item>
+                            <Typography variant='body1'>
+                                Проходьте тест з кожної теми для практики вивченого. Після кожного тесту ви побачите свою оцінку у відсотках, правильні та неправильні відповіді.
+                            </Typography>
+                        </Grid>
+                        <Grid item>
+                            <Typography variant='body1'>
+                                Задовільна оцінка проходження тесту&nbsp;-&nbsp;<strong>90%</strong>.
+                            </Typography>
+                        </Grid>
+                        <Grid item>
+                            <Typography variant='body1'>
+                                У разі незадовільної для Вас оцінки Ви можете пройти тест ще раз. Результати пройдених тестів ви знайдете в розділі&nbsp;
+                                <Link component={RouterLink} to={routes.testResults.all} sx={homeStyles.link}>
+                                    Мої результати.
+                                </Link>
+                            </Typography>
+                        </Grid>
+                    </Grid>
+                </Grid>
                 <Grid item>
-                    <Typography variant='h1'>Граматика з GrammarLab</Typography>
-                </Grid>
-                <Grid item container rowSpacing={2}>
-                    <Grid item>
-                        <Typography variant='body1'>
-                            Ваш поточний рівень володіння англійською мовою&nbsp;-&nbsp;<strong>{userLevelCode}</strong>.
-                        </Typography>
-                    </Grid>
-                    <Grid item>
-                        <Typography variant='body1'>
-                            Оберіть з каталогу рівнів ваш рівень та вивчайте теми граматики, визначені в ньому.
-                        </Typography>
-                    </Grid>
-                    <Grid item>
-                        <Typography variant='body1'>
-                            Проходьте тест з кожної теми для практики вивченого. Після кожного тесту ви побачите свою оцінку у відсотках, правильні та неправильні відповіді.
-                        </Typography>
-                    </Grid>
-                    <Grid item>
-                        <Typography variant='body1'>
-                            Задовільна оцінка проходження тесту&nbsp;-&nbsp;<strong>90%</strong>.
-                        </Typography>
-                    </Grid>
-                    <Grid item>
-                        <Typography variant='body1'>
-                            У разі незадовільної для Вас оцінки Ви можете пройти тест ще раз. Результати пройдених тестів ви знайдете в розділі&nbsp;
-                            <Link component={RouterLink} to={routes.testResults.all} sx={homeStyles.link}>
-                                Мої результати.
-                            </Link>
-                        </Typography>
-                    </Grid>
+                    <LevelCardsList />
                 </Grid>
             </Grid>
-            <Grid item>
-                <LevelCardsList />
-            </Grid>
-        </Grid>
-    )
+        ) : null
+    );
 }

@@ -62,27 +62,29 @@ export const LevelPage = () => {
     ];
 
     return (
-        <Grid container direction='column' rowSpacing='40px'>
-            <Grid item container justifyContent='space-between' alignItems='start'>
-                <Grid item xs>
-                    <Typography variant='h1'>{level?.code}: {level?.name}</Typography>
-                </Grid>
-                { isAdmin &&
-                    <Grid item container justifyContent='end' xs={3} columnSpacing={1}>
-                        <Grid item>
-                            <RouterLink to={routes.topics.new.url(level?.id as number)}>
-                                <ButtonStyled variant={ButtonVariant.Contained}>Додати тему</ButtonStyled>
-                            </RouterLink>
-                        </Grid>
-                        <Grid item>
-                            <MoreDropDownMenu options={levelMenuOptions} />
-                        </Grid>
+        level ? (
+            <Grid container direction='column' rowSpacing='40px'>
+                <Grid item container justifyContent='space-between' alignItems='start'>
+                    <Grid item xs>
+                        <Typography variant='h1'>{level.code}: {level.name}</Typography>
                     </Grid>
-                }
+                    { isAdmin &&
+                        <Grid item container justifyContent='end' xs={3} columnSpacing={1}>
+                            <Grid item>
+                                <RouterLink to={routes.topics.new.url(level.id)}>
+                                    <ButtonStyled variant={ButtonVariant.Contained}>Додати тему</ButtonStyled>
+                                </RouterLink>
+                            </Grid>
+                            <Grid item>
+                                <MoreDropDownMenu options={levelMenuOptions} />
+                            </Grid>
+                        </Grid>
+                    }
+                </Grid>
+                <Grid item>
+                    <TopicCardsList topics={level.topics}/>
+                </Grid>
             </Grid>
-            <Grid item>
-                <TopicCardsList topics={level?.topics}/>
-            </Grid>
-        </Grid>
-    )
+        ) : null
+    );
 }

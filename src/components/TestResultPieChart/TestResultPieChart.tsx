@@ -2,6 +2,7 @@ import { PieChart } from '@mui/x-charts/PieChart';
 import {PieChartCenterLabel} from "../common/PieChartCenterLabel/PieChartCenterLabel";
 import {Grid, Typography} from "@mui/material";
 import React from "react";
+import {colors} from "../../constants/colors";
 
 interface TestResultPieChartProps {
     correctCount: number;
@@ -13,11 +14,11 @@ export const TestResultPieChart = ({ correctCount, incorrectCount, percentage } 
     const data = [];
 
     if(correctCount > 0) {
-        data.push({ label: 'Правильні відповіді', value: correctCount, color: '#27BD51' });
+        data.push({ label: 'Правильні відповіді', value: correctCount, color: colors.success });
     }
 
     if(incorrectCount > 0) {
-        data.push({ label: 'Неправильні відповіді', value: incorrectCount, color: '#EB5757' });
+        data.push({ label: 'Неправильні відповіді', value: incorrectCount, color: colors.error });
     }
 
     return (

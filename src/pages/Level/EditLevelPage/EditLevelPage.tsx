@@ -21,6 +21,7 @@ export const EditLevelPage = () => {
         code: false,
         name: false,
     });
+    const [isLevelLoaded, setIsLevelLoaded] = useState(false);
 
     const navigate = useNavigate();
 
@@ -33,6 +34,7 @@ export const EditLevelPage = () => {
         if(level) {
             setCode(level.code);
             setName(level.name);
+            setIsLevelLoaded(true);
         }
     }, [level, levelsState]);
 
@@ -70,26 +72,24 @@ export const EditLevelPage = () => {
     }
 
     return (
-        levelsState === SliceState.Succeeded
-            ? (
-                <Grid item container direction='column' rowSpacing={4} xs>
-                    <Grid item>
-                        <Typography variant='h1'>Редагування рівня</Typography>
-                    </Grid>
-                    <Grid item>
-                        <LevelForm
-                            code={code}
-                            setCode={setCode}
-                            name={name}
-                            setName={setName}
-                            validationErrors={validationErrors}
-                            setValidationErrors={setValidationErrors}
-                            handleSubmit={handleSubmit}
-                            goBackLink={routes.levels.view.url(level?.id as number)}
-                        />
-                    </Grid>
+        level && isLevelLoaded ? (
+            <Grid item container direction='column' rowSpacing={4} xs>
+                <Grid item>
+                    <Typography variant='h1'>Редагування рівня</Typography>
                 </Grid>
-            )
-            : null
+                <Grid item>
+                    <LevelForm
+                        code={code}
+                        setCode={setCode}
+                        name={name}
+                        setName={setName}
+                        validationErrors={validationErrors}
+                        setValidationErrors={setValidationErrors}
+                        handleSubmit={handleSubmit}
+                        goBackLink={routes.levels.view.url(level.id)}
+                    />
+                </Grid>
+            </Grid>
+        ) : null
     );
 }

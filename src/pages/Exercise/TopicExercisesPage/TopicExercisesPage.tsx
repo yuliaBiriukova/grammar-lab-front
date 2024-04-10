@@ -1,4 +1,4 @@
-import {Grid, IconButton, Typography} from "@mui/material";
+import {Grid, Typography} from "@mui/material";
 import {Link as RouterLink, useNavigate, useParams} from "react-router-dom";
 import {routes} from "../../../constants/routes";
 import {ButtonStyled} from "../../../components/common/Button/ButtonStyled";
@@ -7,11 +7,13 @@ import React, {useEffect, useState} from "react";
 import {Topic} from "../../../models/Topic/Topic";
 import {getTopicById} from "../../../services/topic.service";
 import { Exercise } from "../../../models/Exercise/Exercise";
-import {getTopicExercisesByTopicId} from "../../../services/exercise.service";
+import {deleteExerciseById, getTopicExercisesByTopicId} from "../../../services/exercise.service";
 import {GridColDef} from "@mui/x-data-grid";
 import {DataTable} from "../../../components/common/DataTable/DataTable";
-import {ArrowForward, MoreVert} from "@mui/icons-material";
-import {theme} from "../../../utils/theme";
+import {ArrowForward, Delete, Edit} from "@mui/icons-material";
+import {topicExercisesStyles} from "./topic-exercises.styles";
+import {MoreDropDownMenu} from "../../../components/common/DropDown/MoreDropDownMenu";
+import {MenuOption} from "../../../models/MenuOption";
 
 const ExerciseType: Record<number, string> = {
     1: "Translation",
@@ -36,42 +38,44 @@ export const TopicExercisesPage = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        const fetchTopic = async () => {
-            const topicData = await getTopicById(parseInt(topicId as string));
-            if(!topicData) {
+        const fetchTopicAndExercises = async () => {
+            const [topicData, exercisesData] = await Promise.all([
+                getTopicById(parseInt(topicId as string)),
+                getTopicExercisesByTopicId(parseInt(topicId as string)),
+            ]);
+
+            if(!topicData || !exercisesData) {
                 navigate(routes.home);
                 return;
             }
+
             setTopic(topicData);
-        };
-
-        fetchTopic();
-    }, [topicId]);
-
-    useEffect(() => {
-        const fetchExercises = async () => {
-            const exercisesData = await getTopicExercisesByTopicId(parseInt(topicId as string));
-            if(!exercisesData) {
-                navigate(routes.home);
-                return;
-            }
             setExercises(exercisesData);
         };
 
-        fetchExercises();
+        fetchTopicAndExercises();
     }, [topicId]);
 
-    const buttonStyles = {
-        '&.MuiButton-text': {
-            background: 'none',
-            padding: 0,
-            height: 24,
-            color: theme.palette.primary.main,
-            '&:hover': {
-                color: theme.palette.primary.dark,
-                background: 'none',
+    const handleDeleteClick = async (id: number) => {
+        const isSuccess = await deleteExerciseById(id);
+        if (isSuccess) {
+            setExercises(exercises.filter(exercise => exercise.id !== id));
+        }
+    }
+
+    const getMoreOptions = (id: number): MenuOption[] => {
+        return [
+            {
+                name: 'Редагувати',
+                link: routes.exercises.edit.url(id),
+                icon: <Edit/>
             },
-        },
+            {
+                name: 'Видалити',
+                icon: <Delete/>,
+                onClick: () => handleDeleteClick(id),
+            }
+        ];
     }
 
     const columns: GridColDef[] = [
@@ -101,7 +105,7 @@ export const TopicExercisesPage = () => {
             align: 'center',
             renderCell: (params) => (
                 <RouterLink to={routes.exercises.view.url(params.row.id)} >
-                    <ButtonStyled onClick={() => console.log(params.row.id)} endIcon={<ArrowForward />} sx={buttonStyles}>Переглянути</ButtonStyled>
+                    <ButtonStyled endIcon={<ArrowForward />} sx={topicExercisesStyles.button}>Переглянути</ButtonStyled>
                 </RouterLink>
             ),
         },
@@ -111,34 +115,34 @@ export const TopicExercisesPage = () => {
             width: 48,
             sortable: false,
             align: 'center',
-            renderCell: () => (
-                <IconButton>
-                    <MoreVert />
-                </IconButton>
+            renderCell: params => (
+                <MoreDropDownMenu options={getMoreOptions(params.row.id)} />
             ),
         },
     ];
 
     return (
-        <Grid item container direction='column' rowSpacing='40px' xs>
-            <Grid item container justifyContent='space-between' alignItems='center'>
-                <Grid item>
-                    <Typography variant='h1'>Завдання з теми&nbsp;{topic?.name}</Typography>
+        topic && exercises ? (
+            <Grid item container direction='column' rowSpacing='40px' xs>
+                <Grid item container justifyContent='space-between' alignItems='center'>
+                    <Grid item>
+                        <Typography variant='h1'>Завдання з теми&nbsp;{topic.name}</Typography>
+                    </Grid>
+                    <Grid item>
+                        <RouterLink to={routes.exercises.new.url(topic.id as number)}>
+                            <ButtonStyled variant={ButtonVariant.Contained}>Додати завдання</ButtonStyled>
+                        </RouterLink>
+                    </Grid>
                 </Grid>
-                <Grid item>
-                    <RouterLink to={routes.exercises.new.url(topic?.id as number)}>
-                        <ButtonStyled variant={ButtonVariant.Contained}>Додати завдання</ButtonStyled>
-                    </RouterLink>
+                <Grid item width='100%'>
+                    { exercises.length !== 0 &&
+                        <DataTable rows={exercises} columns={columns}/>
+                    }
+                    { exercises.length === 0 &&
+                        <Typography variant='body1'>У цієї теми немає завдань.</Typography>
+                    }
                 </Grid>
             </Grid>
-            <Grid item width='100%'>
-                { exercises.length !== 0 &&
-                    <DataTable rows={exercises} columns={columns}/>
-                }
-                { exercises.length === 0 &&
-                    <Typography variant='body1'>У цієї теми немає завдань.</Typography>
-                }
-            </Grid>
-        </Grid>
-    )
+        ) : null
+    );
 }
