@@ -16,7 +16,7 @@ export const ButtonStyled = (props: ButtonProps) => {
             background: 'none',
             padding: 0,
             height: 24,
-            color: colors.linkButtonText,
+            color: colors.text.secondary,
             '&:hover': {
                 color: colors.primary.main,
                 background: 'none',

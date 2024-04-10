@@ -9,20 +9,20 @@ export const TextInputField = (props: TextFieldProps) => {
             padding: '0 0 0 0'
         },
         '& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline': {
-            border: '1px solid #E0E0E0',
+            border: `1px solid ${colors.border.default}`,
             borderRadius: '8px',
         },
         '& .MuiOutlinedInput-root.Mui-error .MuiOutlinedInput-notchedOutline': {
-            border: '1px solid #EB4D47',
+            border: `1px solid ${colors.border.error}`,
         },
         '&:hover .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline': {
-            border: '1px solid #828282',
+            border: `1px solid ${colors.border.hover}`,
         },
         '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
-            border: '1px solid #4B4C4E',
+            border: `1px solid ${colors.border.active}`,
         },
         '& .MuiOutlinedInput-root.Mui-disabled .MuiOutlinedInput-notchedOutline': {
-            border: '1px solid #E0E0E0',
+            border: `1px solid ${colors.border.default}`,
         },
         '& .MuiInputBase-input': {
             color: colors.black,
@@ -38,7 +38,7 @@ export const TextInputField = (props: TextFieldProps) => {
             lineHeight: '140%',
         },
         '& .MuiFormHelperText-root.Mui-error': {
-            color: colors.error,
+            color: colors.text.error,
         },
         ...sx,
     };

@@ -2,7 +2,7 @@ import {colors} from "../../../constants/colors";
 
 export const headerStyles = {
     container: {
-        background: colors.backgroundWhite,
+        background: colors.bg.default,
         height: 72,
         boxShadow: '0 4px 12px 0 rgba(0, 0, 0, 0.06)',
     },

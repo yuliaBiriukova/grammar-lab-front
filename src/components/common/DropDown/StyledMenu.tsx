@@ -14,7 +14,7 @@ export const StyledMenu = styled(Menu)(() => ({
         padding: '16px 24px',
         height: 48,
         '&:hover': {
-            background: colors.menuItemHover,
+            background: colors.bg.hover,
         },
     },
     '& .MuiSvgIcon-root': {

@@ -14,11 +14,11 @@ export const TestResultPieChart = ({ correctCount, incorrectCount, percentage } 
     const data = [];
 
     if(correctCount > 0) {
-        data.push({ label: 'Правильні відповіді', value: correctCount, color: colors.success });
+        data.push({ label: 'Правильні відповіді', value: correctCount, color: colors.bg.success });
     }
 
     if(incorrectCount > 0) {
-        data.push({ label: 'Неправильні відповіді', value: incorrectCount, color: colors.error });
+        data.push({ label: 'Неправильні відповіді', value: incorrectCount, color: colors.bg.error });
     }
 
     return (
@@ -27,6 +27,7 @@ export const TestResultPieChart = ({ correctCount, incorrectCount, percentage } 
                 <PieChart
                     series={[
                         {
+                            paddingAngle: 1,
                             innerRadius: 32,
                             outerRadius: 48,
                             data,

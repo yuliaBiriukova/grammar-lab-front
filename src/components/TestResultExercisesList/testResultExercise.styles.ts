@@ -2,9 +2,9 @@ import { colors } from "../../constants/colors";
 
 export const testResultExerciseStyles = {
     correct: {
-        color: colors.success,
+        color: colors.text.success,
     },
     incorrect: {
-        color: colors.error,
+        color: colors.text.error,
     },
 }

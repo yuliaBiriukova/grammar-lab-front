@@ -1,4 +1,3 @@
-import {theme} from "../../utils/theme";
 import {colors} from "../../constants/colors";
 
 export const levelCardStyles = {
@@ -12,7 +11,7 @@ export const levelCardStyles = {
         minWidth: 45,
         fontWeight: 700,
         fontSize: 32,
-        color: theme.palette.primary.main,
+        color: colors.primary.main,
         lineHeight: '24px',
     },
 }

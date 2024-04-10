@@ -11,7 +11,7 @@ export const TextInputLabel = (props: InputLabelProps) => {
             fontWeight: 500,
         },
         '& .MuiInputLabel-asterisk': {
-            color: colors.error,
+            color: colors.text.error,
         },
         ...sx,
     };
