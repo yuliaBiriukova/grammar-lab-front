@@ -38,10 +38,10 @@ export const DataTable = ( { rows, columns } : DataTableProps) => {
             columns={columns}
             initialState={{
                 pagination: {
-                    paginationModel: { page: 0, pageSize: 5 },
+                    paginationModel: { page: 0, pageSize: 10 },
                 },
             }}
-            pageSizeOptions={[5, 10]}
+            pageSizeOptions={[5, 10, 15, 20]}
             disableRowSelectionOnClick
             showCellVerticalBorder
             sx={style}

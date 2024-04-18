@@ -1,10 +1,10 @@
-import {TextInputLabel} from "./TextInputLabel";
-import {TextInputField} from "./TextInputField";
 import {Grid} from "@mui/material";
-import React from "react";
+import {TextInputLabel} from "./TextInputLabel";
 import {inputStyles} from "./input.styles";
+import React from "react";
+import {PasswordField} from "./PasswordField";
 
-interface LabeledTextFieldProps {
+interface LabeledPasswordFieldProps {
     label: string;
     value: string;
     placeholder: string;
@@ -14,7 +14,7 @@ interface LabeledTextFieldProps {
     errorText?: string;
 }
 
-export const LabeledTextField = (props : LabeledTextFieldProps) => {
+export const LabeledPasswordField = (props : LabeledPasswordFieldProps) => {
     return (
         <Grid container direction='column' rowSpacing={1}>
             <Grid item>
@@ -23,17 +23,16 @@ export const LabeledTextField = (props : LabeledTextFieldProps) => {
                 </TextInputLabel>
             </Grid>
             <Grid item>
-                <TextInputField
-                    type="text"
-                    placeholder={props.placeholder}
+                <PasswordField
                     value={props.value}
+                    placeholder={props.placeholder}
                     onChange={props.onChange}
                     required={props.required}
-                    sx={inputStyles.textField}
                     error={props.error}
                     helperText={props.error ? props.errorText : ''}
+                    sx={inputStyles.textField}
                 />
             </Grid>
         </Grid>
-    );
+    )
 }

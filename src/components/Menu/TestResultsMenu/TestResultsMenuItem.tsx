@@ -1,9 +1,9 @@
 import {Link as RouterLink, useParams} from "react-router-dom";
-import {useAppSelector} from "../../app/hooks";
-import {selectLevelById} from "../../features/levels/levelsSlice";
+import {useAppSelector} from "../../../app/hooks";
+import {selectLevelById} from "../../../features/levels/levelsSlice";
 import {levelsMenuStyles} from "../LevelsMenu/levels-menu.styles";
 import {Grid, Link} from "@mui/material";
-import {routes} from "../../constants/routes";
+import {routes} from "../../../constants/routes";
 import React from "react";
 
 interface TestsMenuItemProps {

@@ -1,14 +1,14 @@
-import { Grid } from "@mui/material";
-import { LevelsMenu } from "../../../Menu/LevelsMenu/LevelsMenu";
-import { Outlet } from "react-router-dom";
-import {catalogStyles} from "./catalog.styles";
+import {Grid} from "@mui/material";
+import {catalogStyles} from "../CatalogLayout/catalog.styles";
+import {Outlet} from "react-router-dom";
+import {UsersMenu} from "../../../Menu/UsersMenu/UsersMenu";
 
-export const CatalogLayout = () => {
+export const UsersLayout = () => {
     return (
         <Grid item container justifyContent='center' sx={catalogStyles.container}>
             <Grid item container justifyContent='space-between' sx={catalogStyles.content}>
                 <Grid item>
-                    <LevelsMenu />
+                    <UsersMenu />
                 </Grid>
                 <Grid item xs>
                     <Outlet/>

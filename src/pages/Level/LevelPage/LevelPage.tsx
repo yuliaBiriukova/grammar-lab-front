@@ -5,7 +5,7 @@ import {deleteLevelById, getLevelByIdWithTopics} from "../../../services/level.s
 import {routes} from "../../../constants/routes";
 import {TopicCardsList} from "../../../components/TopicCardsList/TopicCardsList";
 import {checkUserHasRole} from "../../../services/auth.service";
-import {UserRole} from "../../../utils/enums/auth/UserRole";
+import {UserRoleString} from "../../../utils/enums/auth/UserRoleString";
 import {ButtonVariant} from "../../../utils/enums/button/ButtonVariant";
 import {ButtonStyled} from "../../../components/common/Button/ButtonStyled";
 import {MoreDropDownMenu} from "../../../components/common/DropDown/MoreDropDownMenu";
@@ -24,7 +24,7 @@ export const LevelPage = () => {
     const dispatch = useAppDispatch();
 
     useEffect(() => {
-        setIsAdmin(checkUserHasRole(UserRole.Admin));
+        setIsAdmin(checkUserHasRole(UserRoleString.Admin));
     }, []);
 
     useEffect(() => {

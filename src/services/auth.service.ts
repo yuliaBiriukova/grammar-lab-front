@@ -4,7 +4,7 @@ import {
     removeItemFromLocalStorage,
     setItemInLocalStorage
 } from "../utils/helpers/localStorage.helper";
-import {UserRole} from "../utils/enums/auth/UserRole";
+import {UserRoleString} from "../utils/enums/auth/UserRoleString";
 
 export const checkIsUserAuthenticated = () => {
     return !!getItemFromLocalStorage(USER_TOKEN_KEY);
@@ -14,7 +14,7 @@ export const getCurrentUserRoles = () => {
     return getItemFromLocalStorage(USER_ROLE_KEY);
 }
 
-export const checkUserHasRole = (role: UserRole) => {
+export const checkUserHasRole = (role: UserRoleString) => {
     const userRoles = getCurrentUserRoles();
     return !!userRoles && userRoles.includes(role);
 }

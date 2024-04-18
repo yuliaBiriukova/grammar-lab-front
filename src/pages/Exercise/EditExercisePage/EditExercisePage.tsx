@@ -1,6 +1,6 @@
 import {useNavigate, useParams} from "react-router-dom";
 import React, {useEffect, useState} from "react";
-import {ExerciseType} from "../../../utils/enums/models/ExerciseType";
+import {ExerciseType} from "../../../models/Exercise/ExerciseType";
 import {checkIsStringEmpty} from "../../../utils/helpers/helpers";
 import {getExerciseById, updateExerciseAsync} from "../../../services/exercise.service";
 import {routes} from "../../../constants/routes";

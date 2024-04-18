@@ -69,4 +69,17 @@ export const routes = {
         },
     },
     account: '/account',
+    users: {
+        all: '/users',
+        new: '/users/new',
+        byRole: (role: any) => `/users?role=${role}`,
+        edit: {
+            path: '/users/:id/edit',
+            url: (id: string) => `/users/${id}/edit`,
+            password: {
+                path: '/users/:id/edit/password',
+                url: (id: string) => `/users/${id}/edit/password`
+            },
+        },
+    }
 }

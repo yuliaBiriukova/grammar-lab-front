@@ -19,7 +19,7 @@ const initialState = levelsAdapter.getInitialState<LevelsState>({
 export const fetchLevels = createAsyncThunk(
     'levels/fetchLevels',
     async () => {
-        return await getAllLevels();
+        return await getAllLevels() ?? [];
     }
 );
 
@@ -84,5 +84,6 @@ export const { upsertLevel, removeLevel } = levelsSlice.actions;
 
 export const {
     selectIds: selectLevelsIds,
-    selectById: selectLevelById
+    selectById: selectLevelById,
+    selectAll: selectLevels,
 } = levelsAdapter.getSelectors<RootState>(state => state.levels);

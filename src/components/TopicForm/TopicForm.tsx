@@ -45,7 +45,7 @@ export const TopicForm = (props : TopicFormProps) => {
             <Grid item>
                 <form>
                     <Grid item container direction='column' justifyContent="center" rowSpacing={3}>
-                        <Grid item container rowSpacing={1}>
+                        <Grid item>
                             <LabeledTextField
                                 label='Назва'
                                 value={props.name}

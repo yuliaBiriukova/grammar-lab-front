@@ -1,7 +1,7 @@
 import {Grid} from "@mui/material";
 import {catalogStyles} from "../CatalogLayout/catalog.styles";
 import {Outlet} from "react-router-dom";
-import {TestResultsMenu} from "../../../TestResultsMenu/TestResultsMenu";
+import {TestResultsMenu} from "../../../Menu/TestResultsMenu/TestResultsMenu";
 
 export const TestResultsLayout = () => {
     return (

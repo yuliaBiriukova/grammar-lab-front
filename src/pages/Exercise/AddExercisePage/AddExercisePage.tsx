@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {ExerciseType} from "../../../utils/enums/models/ExerciseType";
+import {ExerciseType} from "../../../models/Exercise/ExerciseType";
 import {useNavigate, useParams} from "react-router-dom";
 import {Grid, Typography} from "@mui/material";
 import {routes} from "../../../constants/routes";

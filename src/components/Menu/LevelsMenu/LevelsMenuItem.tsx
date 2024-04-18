@@ -1,10 +1,10 @@
 import React from "react";
 import {Grid, Link} from "@mui/material";
-import {routes} from "../../constants/routes";
+import {routes} from "../../../constants/routes";
 import {Link as RouterLink, useParams} from "react-router-dom";
 import {levelsMenuStyles} from "./levels-menu.styles";
-import {selectLevelById} from "../../features/levels/levelsSlice";
-import {useAppSelector} from "../../app/hooks";
+import {selectLevelById} from "../../../features/levels/levelsSlice";
+import {useAppSelector} from "../../../app/hooks";
 
 interface LevelsMenuItemProps {
     levelId: number;

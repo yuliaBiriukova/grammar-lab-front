@@ -1,5 +1,5 @@
 import React, {ChangeEvent, Dispatch, MouseEventHandler} from "react";
-import {ExerciseType} from "../../utils/enums/models/ExerciseType";
+import {ExerciseType} from "../../models/Exercise/ExerciseType";
 import {Grid} from "@mui/material";
 import {LabeledTextField} from "../common/TextField/LabeledTextField";
 import {Link} from "react-router-dom";
@@ -33,6 +33,10 @@ export const ExerciseForm = (props : ExerciseFormProps) => {
     const handleTypeChange = (event: ChangeEvent<HTMLInputElement>) => {
         const selectedValue = parseInt(event.target.value);
         props.setType(selectedValue as ExerciseType);
+        props.setValidationErrors({
+            ...props.validationErrors,
+            type: false,
+        });
     };
 
     const handleTaskChange = (event: ChangeEvent<HTMLInputElement>) => {

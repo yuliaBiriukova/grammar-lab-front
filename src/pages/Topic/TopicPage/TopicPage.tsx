@@ -8,7 +8,7 @@ import {routes} from "../../../constants/routes";
 import {deleteTopicById, getTopicById} from "../../../services/topic.service";
 import {HtmlDisplay} from "../../../components/common/HtmlDisplay/HtmlDisplay";
 import {checkUserHasRole} from "../../../services/auth.service";
-import {UserRole} from "../../../utils/enums/auth/UserRole";
+import {UserRoleString} from "../../../utils/enums/auth/UserRoleString";
 import {MoreDropDownMenu} from "../../../components/common/DropDown/MoreDropDownMenu";
 import {MenuOption} from "../../../models/MenuOption";
 import {Delete, Edit} from "@mui/icons-material";
@@ -22,7 +22,7 @@ export const TopicPage = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        setIsAdmin(checkUserHasRole(UserRole.Admin));
+        setIsAdmin(checkUserHasRole(UserRoleString.Admin));
     }, []);
 
     useEffect(() => {

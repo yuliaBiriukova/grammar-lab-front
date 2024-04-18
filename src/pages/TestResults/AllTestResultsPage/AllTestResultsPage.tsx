@@ -11,7 +11,7 @@ import { DataTable } from "../../../components/common/DataTable/DataTable";
 import {formatDateToString} from "../../../utils/helpers/dates.helper";
 import {testResultsStyles} from "../test-results.styles";
 
-export const TestResultsPage = () => {
+export const AllTestResultsPage = () => {
     const [testResults, setTestResults] = useState<TestResult[]>();
 
     const navigate = useNavigate();

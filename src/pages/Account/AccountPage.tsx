@@ -4,7 +4,7 @@ import {LabeledTextDisplay} from "../../components/common/LabledTextDisplay/Labe
 import {accountPageLabels} from "../../constants/labels";
 import {useEffect, useState} from "react";
 import {getCurrentAccount} from "../../services/account.service";
-import {User} from "../../models/User";
+import {User} from "../../models/User/User";
 import {useNavigate} from "react-router-dom";
 import {routes} from "../../constants/routes";
 

@@ -12,8 +12,8 @@ interface SelectFieldProps {
     placeholder: string;
     onChange: any;
     required: boolean;
-    error: boolean;
-    errorText: string;
+    error?: boolean;
+    errorText?: string;
 }
 
 export const SelectField = (props : SelectFieldProps) => {

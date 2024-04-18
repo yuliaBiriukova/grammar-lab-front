@@ -4,7 +4,7 @@ import React, {useEffect, useState} from "react";
 import {Grid, Link, Typography} from "@mui/material";
 import {headerStyles} from "./header.styles";
 import {checkUserHasRole, logout} from "../../../services/auth.service";
-import {UserRole} from "../../../utils/enums/auth/UserRole";
+import {UserRoleString} from "../../../utils/enums/auth/UserRoleString";
 
 export const Header = () => {
     const navigate = useNavigate();
@@ -12,7 +12,7 @@ export const Header = () => {
     const [isAdmin, setIsAdmin] = useState(false);
 
     useEffect(() => {
-        setIsAdmin(checkUserHasRole(UserRole.Admin));
+        setIsAdmin(checkUserHasRole(UserRoleString.Admin));
     }, []);
 
     const onLogoutClick = () => {
@@ -44,7 +44,7 @@ export const Header = () => {
                         </Grid>
                         { isAdmin &&
                             <Grid item>
-                                <Link to={routes.home} component={RouterLink} >
+                                <Link to={routes.users.all} component={RouterLink} >
                                     Користувачі
                                 </Link>
                             </Grid>

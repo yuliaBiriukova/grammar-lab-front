@@ -1,14 +1,14 @@
 import {Grid, Link, Typography} from "@mui/material";
 import { levelsMenuStyles } from "./levels-menu.styles";
-import {routes} from "../../constants/routes";
+import {routes} from "../../../constants/routes";
 import React, {useEffect, useState} from "react";
-import {checkUserHasRole} from "../../services/auth.service";
-import {UserRole} from "../../utils/enums/auth/UserRole";
+import {checkUserHasRole} from "../../../services/auth.service";
+import {UserRoleString} from "../../../utils/enums/auth/UserRoleString";
 import {Add} from "@mui/icons-material";
 import {LevelsMenuItem} from "./LevelsMenuItem";
 import {Link as RouterLink} from "react-router-dom";
-import {useAppDispatch, useAppSelector} from "../../app/hooks";
-import {fetchLevels, selectLevelsIds} from "../../features/levels/levelsSlice";
+import {useAppDispatch, useAppSelector} from "../../../app/hooks";
+import {fetchLevels, selectLevelsIds} from "../../../features/levels/levelsSlice";
 
 export const LevelsMenu = () => {
     const [isAdmin, setIsAdmin] = useState(false);
@@ -23,7 +23,7 @@ export const LevelsMenu = () => {
     }, [levelsIds.length]);
 
     useEffect(() => {
-        setIsAdmin(checkUserHasRole(UserRole.Admin));
+        setIsAdmin(checkUserHasRole(UserRoleString.Admin));
     }, []);
 
     let levelsLinks = levelsIds?.map(levelId => (

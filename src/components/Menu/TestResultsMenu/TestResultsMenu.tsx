@@ -1,10 +1,10 @@
-import {useAppDispatch, useAppSelector} from "../../app/hooks";
-import {fetchLevels, selectLevelsIds} from "../../features/levels/levelsSlice";
+import {useAppDispatch, useAppSelector} from "../../../app/hooks";
+import {fetchLevels, selectLevelsIds} from "../../../features/levels/levelsSlice";
 import React, {useEffect} from "react";
 import {levelsMenuStyles} from "../LevelsMenu/levels-menu.styles";
 import {Grid, Link, Typography} from "@mui/material";
 import {TestResultsMenuItem} from "./TestResultsMenuItem";
-import {routes} from "../../constants/routes";
+import {routes} from "../../../constants/routes";
 import {Link as RouterLink} from "react-router-dom";
 
 export const TestResultsMenu = () => {
@@ -35,5 +35,5 @@ export const TestResultsMenu = () => {
                 }
             </Grid>
         </Grid>
-    )
+    );
 }

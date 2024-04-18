@@ -7,7 +7,8 @@ export const apiEndpoints = {
     },
     users:{
         main: 'users',
-        password: 'users/password'
+        password: 'users/password',
+        byId: (id: string) => `users/${id}`,
     },
     levels: {
         main: 'levels',

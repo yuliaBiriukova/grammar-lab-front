@@ -5,7 +5,7 @@ import React, {Dispatch, MouseEventHandler} from "react";
 import {Link} from "react-router-dom";
 import {ButtonStyled} from "../common/Button/ButtonStyled";
 import {ButtonVariant} from "../../utils/enums/button/ButtonVariant";
-import {ExerciseType} from "../../utils/enums/models/ExerciseType";
+import {ExerciseType} from "../../models/Exercise/ExerciseType";
 
 interface TestFormProps {
     topicId: number;
@@ -59,7 +59,7 @@ export const TestForm = ( props  : TestFormProps) => {
                                 <Grid item xs={12}>
                                     <Typography variant="h4">{exerciseTypeLabels[parseInt(type)]}</Typography>
                                 </Grid>
-                                {groupedExercises[parseInt(type)].map((exercise, index) => (
+                                {groupedExercises[parseInt(type)].map(exercise => (
                                     <Grid item xs={12} key={exercise.id}>
                                         <LabeledTextField
                                             label={`${exerciseIndex++}. ${exercise.task}`}

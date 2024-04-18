@@ -2,15 +2,14 @@ import {Grid, Typography} from "@mui/material";
 import {useNavigate} from "react-router-dom";
 import {routes} from "../../constants/routes";
 import React, {ChangeEvent, useState} from "react";
-import {TextInputField} from "../../components/common/TextField/TextInputField";
-import {PasswordInput} from "../../components/common/TextField/PasswordInput";
 import {Api} from "../../utils/axiosApi";
 import {apiEndpoints} from "../../constants/apiEndpoints";
 import {loginStyles} from "./login.styles";
-import {TextInputLabel} from "../../components/common/TextField/TextInputLabel";
 import {ButtonStyled} from "../../components/common/Button/ButtonStyled";
 import {ButtonVariant} from "../../utils/enums/button/ButtonVariant";
 import {login} from "../../services/auth.service";
+import {LabeledTextField} from "../../components/common/TextField/LabeledTextField";
+import {LabeledPasswordField} from "../../components/common/TextField/LabeledPasswordField";
 
 export const LoginPage = () => {
     const [email, setEmail] = useState('');
@@ -91,30 +90,25 @@ export const LoginPage = () => {
                         <form>
                             <Grid item container direction='column' justifyContent="center" rowSpacing={3}>
                                 <Grid item container rowSpacing={1}>
-                                    <TextInputLabel required={true}>
-                                        Електронна пошта
-                                    </TextInputLabel>
-                                    <TextInputField
-                                        type="email"
-                                        placeholder="Введіть електронну пошту"
+                                    <LabeledTextField
+                                        label='Електрона пошта'
                                         value={email}
+                                        placeholder='Введіть електрону пошту'
                                         onChange={handleEmailChange}
                                         required={true}
-                                        sx={loginStyles.textField}
                                         error={validationErrors.email}
-                                        helperText={validationErrors.email ? 'Електронна пошта обов\'язкова' : ''}
+                                        errorText={'Електронна пошта обов\'язкова'}
                                     />
                                 </Grid>
                                 <Grid item>
-                                    <TextInputLabel required={true}>
-                                        Пароль
-                                    </TextInputLabel>
-                                    <PasswordInput
-                                        password={password}
-                                        handlePassword={handlePasswordChange}
-                                        sx={loginStyles.textField}
+                                    <LabeledPasswordField
+                                        label='Пароль'
+                                        value={password}
+                                        placeholder='Введіть пароль'
+                                        onChange={handlePasswordChange}
+                                        required={true}
                                         error={validationErrors.password}
-                                        helperText={validationErrors.password ? 'Пароль обов\'язковий' : ''}
+                                        errorText={'Пароль обов\'язковий'}
                                     />
                                 </Grid>
                                 <Grid item>

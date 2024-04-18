@@ -1,4 +1,4 @@
-import {ExerciseType} from "../../utils/enums/models/ExerciseType";
+import {ExerciseType} from "./ExerciseType";
 
 export interface NewExercise {
     type: ExerciseType;

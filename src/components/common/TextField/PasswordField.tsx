@@ -1,15 +1,10 @@
-import React, {ChangeEventHandler, useState} from "react";
+import React, {useState} from "react";
 import {TextInputField} from "./TextInputField";
 import {IconButton, InputAdornment, TextFieldProps} from "@mui/material";
 import {Visibility, VisibilityOff} from "@mui/icons-material";
 import {inputStyles} from "./input.styles";
 
-interface PasswordInputProps {
-    password: string,
-    handlePassword: ChangeEventHandler<HTMLInputElement>
-}
-
-export const PasswordInput = ({ password, handlePassword, ...rest} : PasswordInputProps & TextFieldProps) => {
+export const PasswordField = (props : TextFieldProps) => {
 
     const [showPassword, setShowPassword] = useState(false);
 
@@ -21,10 +16,6 @@ export const PasswordInput = ({ password, handlePassword, ...rest} : PasswordInp
         <TextInputField
             size="small"
             type={showPassword ? "text" : "password"}
-            placeholder="Введіть пароль"
-            value={password}
-            onChange={handlePassword}
-            required={true}
             InputProps={{
                 endAdornment: (
                     <InputAdornment position="end">
@@ -39,7 +30,7 @@ export const PasswordInput = ({ password, handlePassword, ...rest} : PasswordInp
                     </InputAdornment>
                 ),
             }}
-            {...rest}
+            {...props}
         />
     );
 };

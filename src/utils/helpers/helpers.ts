@@ -7,3 +7,7 @@ export const  handleServerErrors = (e: any) => {
 }
 
 export const checkIsStringEmpty = (value: string) => value.trim() === '';
+
+export const getLevelDisplayName = (code: string, name: string) => {
+    return `${code}: ${name}`;
+}

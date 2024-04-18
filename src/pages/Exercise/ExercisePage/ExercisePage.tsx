@@ -3,12 +3,12 @@ import {useNavigate, useParams} from "react-router-dom";
 import React, {useEffect, useState} from "react";
 import {Exercise} from "../../../models/Exercise/Exercise";
 import {checkUserHasRole} from "../../../services/auth.service";
-import {UserRole} from "../../../utils/enums/auth/UserRole";
+import {UserRoleString} from "../../../utils/enums/auth/UserRoleString";
 import {routes} from "../../../constants/routes";
 import {deleteExerciseById, getExerciseById} from "../../../services/exercise.service";
 import {LabeledTextDisplay} from "../../../components/common/LabledTextDisplay/LabeledTextDisplay";
 import {exercisePageLabels} from "../../../constants/labels";
-import { ExerciseType } from "../../../utils/enums/models/ExerciseType";
+import { ExerciseType } from "../../../models/Exercise/ExerciseType";
 import {MoreDropDownMenu} from "../../../components/common/DropDown/MoreDropDownMenu";
 import {MenuOption} from "../../../models/MenuOption";
 import {Delete, Edit} from "@mui/icons-material";
@@ -43,7 +43,7 @@ export const ExercisePage = () => {
     ];
 
     useEffect(() => {
-        setIsAdmin(checkUserHasRole(UserRole.Admin));
+        setIsAdmin(checkUserHasRole(UserRoleString.Admin));
     }, []);
 
     useEffect(() => {
