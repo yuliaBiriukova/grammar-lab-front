@@ -3,7 +3,7 @@ import {useNavigate} from "react-router-dom";
 import {routes} from "../../../constants/routes";
 import {Grid, Typography} from "@mui/material";
 import {addLevelAsync} from "../../../services/level.service";
-import {LevelForm} from "../../../components/LevelForm/LevelForm";
+import {LevelForm} from "../../../components/Forms/LevelForm/LevelForm";
 
 export const AddLevelPage = () => {
     const [code, setCode] = useState('');

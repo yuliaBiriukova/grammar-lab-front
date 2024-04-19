@@ -1,6 +1,6 @@
 import {Grid, Typography} from "@mui/material";
 import React, {useState} from "react";
-import {UserForm, UserValidationErrors} from "../../../components/UserForm/UserForm";
+import {UserForm, UserValidationErrors} from "../../../components/Forms/UserForm/UserForm";
 import {NewUser} from "../../../models/User/NewUser";
 import {routes} from "../../../constants/routes";
 import {addUserAsync} from "../../../services/user.service";

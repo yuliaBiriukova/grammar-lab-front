@@ -2,6 +2,7 @@ import {Api} from "../utils/axiosApi";
 import {apiEndpoints} from "../constants/apiEndpoints";
 import {NewTopic} from "../models/Topic/NewTopic";
 import {Topic} from "../models/Topic/Topic";
+import qs from "qs";
 
 export const getTopicById = async (id: number) => {
     try {
@@ -48,6 +49,22 @@ export const updateTopicAsync = async (topic: Topic) => {
                 }
             }
         );
+    } catch (err: any) {
+        console.log(err.message);
+    }
+}
+
+export const getTopicsByNameAsync = async (query: string) => {
+    try {
+        const response = await Api.get(
+            apiEndpoints.topics.search,
+            {
+                params: {query},
+                paramsSerializer: params => qs.stringify(params),
+            }
+        );
+
+        return response.data;
     } catch (err: any) {
         console.log(err.message);
     }

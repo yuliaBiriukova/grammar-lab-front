@@ -1,18 +1,18 @@
 import React, {ChangeEvent, Dispatch, MouseEventHandler, useEffect} from "react";
-import {NewUser} from "../../models/User/NewUser";
+import {NewUser} from "../../../models/User/NewUser";
 import {Grid} from "@mui/material";
-import {LabeledTextField} from "../common/TextField/LabeledTextField";
+import {LabeledTextField} from "../../common/TextField/LabeledTextField";
 import {Link} from "react-router-dom";
-import {ButtonStyled} from "../common/Button/ButtonStyled";
-import {ButtonVariant} from "../../utils/enums/button/ButtonVariant";
-import {SelectField} from "../common/TextField/SelectField";
-import {SelectOption} from "../../models/SelectOption";
-import {LabeledPasswordField} from "../common/TextField/LabeledPasswordField";
-import { UserRoleString } from "../../utils/enums/auth/UserRoleString";
-import {UserRole} from "../../models/User/UserRole";
-import {useAppDispatch, useAppSelector} from "../../app/hooks";
-import {fetchLevels, selectLevelById, selectLevels} from "../../features/levels/levelsSlice";
-import {getLevelDisplayName} from "../../utils/helpers/helpers";
+import {ButtonStyled} from "../../common/Button/ButtonStyled";
+import {ButtonVariant} from "../../../utils/enums/button/ButtonVariant";
+import {SelectField} from "../../common/TextField/SelectField";
+import {SelectOption} from "../../../models/SelectOption";
+import {LabeledPasswordField} from "../../common/TextField/LabeledPasswordField";
+import { UserRoleString } from "../../../utils/enums/auth/UserRoleString";
+import {UserRole} from "../../../models/User/UserRole";
+import {useAppDispatch, useAppSelector} from "../../../app/hooks";
+import {fetchLevels, selectLevels} from "../../../features/levels/levelsSlice";
+import {getLevelDisplayName} from "../../../utils/helpers/helpers";
 
 export interface UserValidationErrors {
     email: boolean;

@@ -5,7 +5,7 @@ import React, {useEffect, useState} from "react";
 import {routes} from "../../../constants/routes";
 import {updateLevelAsync} from "../../../services/level.service";
 import {Grid, Typography} from "@mui/material";
-import {LevelForm} from "../../../components/LevelForm/LevelForm";
+import {LevelForm} from "../../../components/Forms/LevelForm/LevelForm";
 import {SliceState} from "../../../utils/enums/states/SliceState";
 import {checkIsStringEmpty} from "../../../utils/helpers/helpers";
 

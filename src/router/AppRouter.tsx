@@ -31,6 +31,7 @@ import {UsersPage} from "../pages/User/UsersPage/UsersPage";
 import {AddUserPage} from "../pages/User/AddUserPage/AddUserPage";
 import {EditUserPage} from "../pages/User/EditUserPage/EditUserPage";
 import {ChangePasswordPage} from "../pages/User/ChangePasswordPage/ChangePasswordPage";
+import {SearchPage} from "../pages/Topic/SearchPage/SearchPage";
 
 export const AppRouter = () => (
     <BrowserRouter>
@@ -44,6 +45,7 @@ export const AppRouter = () => (
                             <Route path={routes.topics.view.path} element={ <TopicPage /> } />
                             <Route path={routes.topics.test.path} element={ <TestPage /> } />
                             <Route path={routes.topics.test.result.path} element={ <CompletedTestResultPage /> } />
+                            <Route path={routes.topics.search.main} element={ <SearchPage /> } />
                         </Route>
                         <Route element={<PrivateRoute allowedRoles={ [UserRoleString.Admin, UserRoleString.Teacher] }/>} >
                             <Route path={routes.levels.new} element={ <AddLevelPage /> } />

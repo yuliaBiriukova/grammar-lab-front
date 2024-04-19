@@ -1,9 +1,9 @@
 import React, {ChangeEvent, Dispatch, MouseEventHandler} from "react";
 import {Grid} from "@mui/material";
 import {Link} from "react-router-dom";
-import {ButtonStyled} from "../common/Button/ButtonStyled";
-import {ButtonVariant} from "../../utils/enums/button/ButtonVariant";
-import {LabeledTextField} from "../common/TextField/LabeledTextField";
+import {ButtonStyled} from "../../common/Button/ButtonStyled";
+import {ButtonVariant} from "../../../utils/enums/button/ButtonVariant";
+import {LabeledTextField} from "../../common/TextField/LabeledTextField";
 
 interface TopicValidationErrors {
     name: boolean;

@@ -34,6 +34,10 @@ export const routes = {
                 url: (topicId: number) => `/topics/${topicId}/test/result`,
             },
         },
+        search: {
+            main: '/topics/search',
+            byQuery: (query: string) => `/topics/search?query=${query}`
+        }
     },
     exercises: {
         list: {

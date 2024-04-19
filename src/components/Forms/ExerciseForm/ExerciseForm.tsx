@@ -1,12 +1,12 @@
 import React, {ChangeEvent, Dispatch, MouseEventHandler} from "react";
-import {ExerciseType} from "../../models/Exercise/ExerciseType";
+import {ExerciseType} from "../../../models/Exercise/ExerciseType";
 import {Grid} from "@mui/material";
-import {LabeledTextField} from "../common/TextField/LabeledTextField";
+import {LabeledTextField} from "../../common/TextField/LabeledTextField";
 import {Link} from "react-router-dom";
-import {ButtonStyled} from "../common/Button/ButtonStyled";
-import {ButtonVariant} from "../../utils/enums/button/ButtonVariant";
-import {SelectField} from "../common/TextField/SelectField";
-import {SelectOption} from "../../models/SelectOption";
+import {ButtonStyled} from "../../common/Button/ButtonStyled";
+import {ButtonVariant} from "../../../utils/enums/button/ButtonVariant";
+import {SelectField} from "../../common/TextField/SelectField";
+import {SelectOption} from "../../../models/SelectOption";
 
 interface ExerciseValidationErrors {
     type: boolean;

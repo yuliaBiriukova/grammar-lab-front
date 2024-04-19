@@ -7,7 +7,7 @@ import {getTopicExercisesByTopicId} from "../../../services/exercise.service";
 import {getTopicById} from "../../../services/topic.service";
 import {Topic} from "../../../models/Topic/Topic";
 import {NewTestResult} from "../../../models/TestResult/NewTestResult";
-import {TestForm} from "../../../components/TestForm/TestForm";
+import {TestForm} from "../../../components/Forms/TestForm/TestForm";
 import {addTestResultAsync} from "../../../services/testResult.service";
 import {ButtonStyled} from "../../../components/common/Button/ButtonStyled";
 import {ButtonVariant} from "../../../utils/enums/button/ButtonVariant";

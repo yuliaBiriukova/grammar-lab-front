@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {NewUser} from "../../../models/User/NewUser";
-import {UserForm, UserValidationErrors} from "../../../components/UserForm/UserForm";
+import {UserForm, UserValidationErrors} from "../../../components/Forms/UserForm/UserForm";
 import {Link as RouterLink, useNavigate, useParams} from "react-router-dom";
 import {getUserByIdAsync, updateUserAsync,} from "../../../services/user.service";
 import {routes} from "../../../constants/routes";

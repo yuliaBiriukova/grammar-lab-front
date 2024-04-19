@@ -2,7 +2,7 @@ import {Grid, Typography} from "@mui/material";
 import React, {useState} from "react";
 import {useNavigate, useParams} from "react-router-dom";
 import {routes} from "../../../constants/routes";
-import {TopicForm} from "../../../components/TopicForm/TopicForm";
+import {TopicForm} from "../../../components/Forms/TopicForm/TopicForm";
 import {addTopicAsync} from "../../../services/topic.service";
 
 export const AddTopicPage = () => {

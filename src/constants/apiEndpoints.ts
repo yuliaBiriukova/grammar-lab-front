@@ -18,7 +18,7 @@ export const apiEndpoints = {
     topics: {
         main: 'topics',
         byId: (id: number) => `topics/${id}`,
-        search: (query: string) => `topics/search?query=${encodeURIComponent(query)}`,
+        search: `topics/search`,
     },
     exercises: {
         main: 'exercises',

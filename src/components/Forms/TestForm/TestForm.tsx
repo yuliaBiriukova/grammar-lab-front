@@ -1,11 +1,11 @@
-import {Exercise} from "../../models/Exercise/Exercise";
+import {Exercise} from "../../../models/Exercise/Exercise";
 import {Grid, Typography} from "@mui/material";
-import {LabeledTextField} from "../common/TextField/LabeledTextField";
+import {LabeledTextField} from "../../common/TextField/LabeledTextField";
 import React, {Dispatch, MouseEventHandler} from "react";
 import {Link} from "react-router-dom";
-import {ButtonStyled} from "../common/Button/ButtonStyled";
-import {ButtonVariant} from "../../utils/enums/button/ButtonVariant";
-import {ExerciseType} from "../../models/Exercise/ExerciseType";
+import {ButtonStyled} from "../../common/Button/ButtonStyled";
+import {ButtonVariant} from "../../../utils/enums/button/ButtonVariant";
+import {ExerciseType} from "../../../models/Exercise/ExerciseType";
 
 interface TestFormProps {
     topicId: number;

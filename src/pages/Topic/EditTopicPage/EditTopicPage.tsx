@@ -3,7 +3,7 @@ import React, {useEffect, useState} from "react";
 import {getTopicById, updateTopicAsync} from "../../../services/topic.service";
 import {routes} from "../../../constants/routes";
 import {Grid, Typography} from "@mui/material";
-import {TopicForm} from "../../../components/TopicForm/TopicForm";
+import {TopicForm} from "../../../components/Forms/TopicForm/TopicForm";
 import {Topic} from "../../../models/Topic/Topic";
 
 export const EditTopicPage = () => {

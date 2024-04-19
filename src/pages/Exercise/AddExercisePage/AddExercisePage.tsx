@@ -3,7 +3,7 @@ import {ExerciseType} from "../../../models/Exercise/ExerciseType";
 import {useNavigate, useParams} from "react-router-dom";
 import {Grid, Typography} from "@mui/material";
 import {routes} from "../../../constants/routes";
-import { ExerciseForm } from "../../../components/ExerciseForm/ExerciseForm";
+import { ExerciseForm } from "../../../components/Forms/ExerciseForm/ExerciseForm";
 import {checkIsStringEmpty} from "../../../utils/helpers/helpers";
 import {addExerciseAsync} from "../../../services/exercise.service";
 

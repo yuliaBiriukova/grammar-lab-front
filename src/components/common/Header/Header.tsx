@@ -5,6 +5,7 @@ import {Grid, Link, Typography} from "@mui/material";
 import {headerStyles} from "./header.styles";
 import {checkUserHasRole, logout} from "../../../services/auth.service";
 import {UserRoleString} from "../../../utils/enums/auth/UserRoleString";
+import {Search} from "@mui/icons-material";
 
 export const Header = () => {
     const navigate = useNavigate();
@@ -30,7 +31,7 @@ export const Header = () => {
                         </Typography>
                     </Link>
                 </Grid>
-                <Grid item container justifyContent='space-between' xs>
+                <Grid item container justifyContent='space-between' alignItems='center' xs>
                     <Grid item container columnSpacing={3} xs='auto'>
                         <Grid item>
                             <Link to={routes.home} component={RouterLink} >
@@ -50,7 +51,12 @@ export const Header = () => {
                             </Grid>
                         }
                     </Grid>
-                    <Grid item container columnSpacing={3} justifyContent='end' xs={3}>
+                    <Grid item container columnSpacing={3} alignItems='center' justifyContent='end' xs={3}>
+                        <Grid item height={24}>
+                            <Link component={RouterLink} to={routes.topics.search.main}>
+                                <Search />
+                            </Link>
+                        </Grid>
                         <Grid item>
                             <Link to={routes.account} component={RouterLink} >
                                 Мій акаунт

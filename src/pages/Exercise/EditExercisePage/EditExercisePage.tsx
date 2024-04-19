@@ -5,7 +5,7 @@ import {checkIsStringEmpty} from "../../../utils/helpers/helpers";
 import {getExerciseById, updateExerciseAsync} from "../../../services/exercise.service";
 import {routes} from "../../../constants/routes";
 import {Grid, Typography} from "@mui/material";
-import {ExerciseForm} from "../../../components/ExerciseForm/ExerciseForm";
+import {ExerciseForm} from "../../../components/Forms/ExerciseForm/ExerciseForm";
 import {Exercise} from "../../../models/Exercise/Exercise";
 
 export const EditExercisePage = () => {

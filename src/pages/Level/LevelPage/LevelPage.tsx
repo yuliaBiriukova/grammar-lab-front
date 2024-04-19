@@ -3,7 +3,6 @@ import {Link as RouterLink, useNavigate, useParams} from "react-router-dom";
 import React, {useEffect, useState} from "react";
 import {deleteLevelById, getLevelByIdWithTopics} from "../../../services/level.service";
 import {routes} from "../../../constants/routes";
-import {TopicCardsList} from "../../../components/TopicCardsList/TopicCardsList";
 import {checkUserHasRole} from "../../../services/auth.service";
 import {UserRoleString} from "../../../utils/enums/auth/UserRoleString";
 import {ButtonVariant} from "../../../utils/enums/button/ButtonVariant";
@@ -13,6 +12,7 @@ import {MenuOption} from "../../../models/MenuOption";
 import {Delete, Edit} from "@mui/icons-material";
 import {useAppDispatch, useAppSelector} from "../../../app/hooks";
 import {upsertLevel, removeLevel, selectLevelById} from "../../../features/levels/levelsSlice";
+import {LevelTopicCards} from "../../../components/LevelTopicCards/LevelTopicCards";
 
 export const LevelPage = () => {
     const { levelId } = useParams();
@@ -82,7 +82,7 @@ export const LevelPage = () => {
                     }
                 </Grid>
                 <Grid item>
-                    <TopicCardsList topics={level.topics}/>
+                    <LevelTopicCards topics={level.topics}/>
                 </Grid>
             </Grid>
         ) : null
