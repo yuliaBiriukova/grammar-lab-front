@@ -10,7 +10,7 @@ import {HtmlDisplay} from "../../../components/common/HtmlDisplay/HtmlDisplay";
 import {checkUserHasRole} from "../../../services/auth.service";
 import {UserRoleString} from "../../../utils/enums/auth/UserRoleString";
 import {MoreDropDownMenu} from "../../../components/common/DropDown/MoreDropDownMenu";
-import {MenuOption} from "../../../models/MenuOption";
+import {MenuOption} from "../../../models/Options/MenuOption";
 import {Delete, Edit} from "@mui/icons-material";
 
 export const TopicPage = () => {

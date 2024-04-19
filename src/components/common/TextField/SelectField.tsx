@@ -3,7 +3,7 @@ import {TextInputLabel} from "./TextInputLabel";
 import {TextInputField} from "./TextInputField";
 import {inputStyles} from "./input.styles";
 import React from "react";
-import {SelectOption} from "../../../models/SelectOption";
+import {SelectOption} from "../../../models/Options/SelectOption";
 
 interface SelectFieldProps {
     label: string;

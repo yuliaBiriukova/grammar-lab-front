@@ -28,7 +28,7 @@ export const logout = () => {
     removeItemFromLocalStorage(USER_ROLE_KEY);
 }
 
-export const login = (props: { userToken: string, userRole: string }) => {
+export const localLogin = (props: { userToken: string, userRole: string }) => {
     setItemInLocalStorage(USER_TOKEN_KEY, props.userToken);
     setItemInLocalStorage(USER_ROLE_KEY, props.userRole);
 }

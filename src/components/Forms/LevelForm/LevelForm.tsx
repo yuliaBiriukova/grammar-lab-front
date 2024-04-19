@@ -4,6 +4,7 @@ import {Link} from "react-router-dom";
 import {ButtonStyled} from "../../common/Button/ButtonStyled";
 import {ButtonVariant} from "../../../utils/enums/button/ButtonVariant";
 import {LabeledTextField} from "../../common/TextField/LabeledTextField";
+import { formFieldTexts } from "./configs";
 
 interface LevelValidationErrors {
     code: boolean;
@@ -47,24 +48,24 @@ export const LevelForm = (props : LevelFormProps) => {
                     <Grid item container direction='column' justifyContent="center" rowSpacing={3}>
                         <Grid item>
                             <LabeledTextField
-                                label='Код'
+                                label={formFieldTexts.code.label}
                                 value={props.code}
-                                placeholder='Введіть код рівня'
+                                placeholder={formFieldTexts.code.placeholder}
                                 onChange={handleCodeChange}
                                 required={true}
                                 error={props.validationErrors.code}
-                                errorText={'Код рівня обов\'язковий'}
+                                errorText={formFieldTexts.code.error}
                             />
                         </Grid>
                         <Grid item>
                             <LabeledTextField
-                                label='Назва'
+                                label={formFieldTexts.name.label}
                                 value={props.name}
-                                placeholder='Введіть назву рівня'
+                                placeholder={formFieldTexts.name.placeholder}
                                 onChange={handleNameChange}
                                 required={true}
                                 error={props.validationErrors.name}
-                                errorText={'Назва рівня обов\'язкова'}
+                                errorText={formFieldTexts.name.error}
                             />
                         </Grid>
                     </Grid>

@@ -6,7 +6,8 @@ import {Link} from "react-router-dom";
 import {ButtonStyled} from "../../common/Button/ButtonStyled";
 import {ButtonVariant} from "../../../utils/enums/button/ButtonVariant";
 import {SelectField} from "../../common/TextField/SelectField";
-import {SelectOption} from "../../../models/SelectOption";
+import {SelectOption} from "../../../models/Options/SelectOption";
+import { formFieldTexts } from "./configs";
 
 interface ExerciseValidationErrors {
     type: boolean;
@@ -69,36 +70,36 @@ export const ExerciseForm = (props : ExerciseFormProps) => {
                     <Grid item container direction='column' justifyContent="center" rowSpacing={3}>
                         <Grid item>
                             <SelectField
-                                label='Тип завдання'
+                                label={formFieldTexts.type.label}
                                 value={initialType}
                                 selectOptions={types}
-                                placeholder='Виберіть тип завдання'
+                                placeholder={formFieldTexts.type.placeholder}
                                 onChange={handleTypeChange}
                                 required={true}
                                 error={props.validationErrors.type}
-                                errorText={'Тип завдання обов\'язковий'}
+                                errorText={formFieldTexts.type.error}
                             />
                         </Grid>
                         <Grid item>
                             <LabeledTextField
-                                label='Текст завдання'
+                                label={formFieldTexts.task.label}
                                 value={props.task}
-                                placeholder='Введіть текст завдання'
+                                placeholder={formFieldTexts.task.placeholder}
                                 onChange={handleTaskChange}
                                 required={true}
                                 error={props.validationErrors.task}
-                                errorText={'Текст завдання обов\'язковий'}
+                                errorText={formFieldTexts.task.error}
                             />
                         </Grid>
                         <Grid item>
                             <LabeledTextField
-                                label='Відповідь'
+                                label={formFieldTexts.answer.label}
                                 value={props.answer}
-                                placeholder='Введіть відповідь на завдання'
+                                placeholder={formFieldTexts.answer.placeholder}
                                 onChange={handleAnswerChange}
                                 required={true}
                                 error={props.validationErrors.answer}
-                                errorText={'Відповідь обов\'язковиа'}
+                                errorText={formFieldTexts.answer.error}
                             />
                         </Grid>
                     </Grid>

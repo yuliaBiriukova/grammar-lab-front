@@ -1,5 +1,5 @@
 import {Link, MenuItem} from "@mui/material";
-import {MenuOption} from "../../../models/MenuOption";
+import {MenuOption} from "../../../models/Options/MenuOption";
 import {MouseEventHandler} from "react";
 import {Link as RouterLink} from "react-router-dom";
 

@@ -64,7 +64,7 @@ export const TestForm = ( props  : TestFormProps) => {
                                         <LabeledTextField
                                             label={`${exerciseIndex++}. ${exercise.task}`}
                                             value={props.userAnswers.get(exercise.id) ?? ''}
-                                            placeholder="Your answer"
+                                            placeholder='Введіть правильну відповідь'
                                             onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleChange(exercise.id, e.target.value)}
                                             required
                                             error={props.validationErrors.includes(exercise.id)}

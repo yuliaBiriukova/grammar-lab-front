@@ -3,7 +3,7 @@ import {MoreVert} from "@mui/icons-material";
 import {useState} from "react";
 import {StyledMenu} from "./StyledMenu";
 import {DropDownMenuItem} from "./DropDownMenuItem";
-import {MenuOption} from "../../../models/MenuOption";
+import {MenuOption} from "../../../models/Options/MenuOption";
 
 interface MoreDropDownProps {
     options: MenuOption[];

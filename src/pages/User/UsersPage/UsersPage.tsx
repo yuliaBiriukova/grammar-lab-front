@@ -13,7 +13,7 @@ import {DataTable} from "../../../components/common/DataTable/DataTable";
 import {GridColDef} from "@mui/x-data-grid";
 import {Delete, Edit} from "@mui/icons-material";
 import {MoreDropDownMenu} from "../../../components/common/DropDown/MoreDropDownMenu";
-import {MenuOption} from "../../../models/MenuOption";
+import {MenuOption} from "../../../models/Options/MenuOption";
 
 export const UsersPage = () => {
     const location = useLocation();

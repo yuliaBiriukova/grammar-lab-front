@@ -8,7 +8,7 @@ import {UserRoleString} from "../../../utils/enums/auth/UserRoleString";
 import {ButtonVariant} from "../../../utils/enums/button/ButtonVariant";
 import {ButtonStyled} from "../../../components/common/Button/ButtonStyled";
 import {MoreDropDownMenu} from "../../../components/common/DropDown/MoreDropDownMenu";
-import {MenuOption} from "../../../models/MenuOption";
+import {MenuOption} from "../../../models/Options/MenuOption";
 import {Delete, Edit} from "@mui/icons-material";
 import {useAppDispatch, useAppSelector} from "../../../app/hooks";
 import {upsertLevel, removeLevel, selectLevelById} from "../../../features/levels/levelsSlice";

@@ -1,12 +1,12 @@
 import {Grid, Typography} from "@mui/material";
-import {catalogStyles} from "../../components/common/Layout/CatalogLayout/catalog.styles";
-import {LabeledTextDisplay} from "../../components/common/LabledTextDisplay/LabeledTextDisplay";
-import {accountPageLabels} from "../../constants/labels";
+import {catalogStyles} from "../../../components/common/Layout/CatalogLayout/catalog.styles";
+import {LabeledTextDisplay} from "../../../components/common/LabledTextDisplay/LabeledTextDisplay";
+import {accountPageLabels} from "./configs";
 import {useEffect, useState} from "react";
-import {getCurrentAccount} from "../../services/account.service";
-import {User} from "../../models/User/User";
+import {getCurrentAccount} from "../../../services/account.service";
+import {User} from "../../../models/User/User";
 import {useNavigate} from "react-router-dom";
-import {routes} from "../../constants/routes";
+import {routes} from "../../../constants/routes";
 
 export const AccountPage = () => {
     const [user, setUser] = useState<User>();

@@ -5,9 +5,3 @@ export const accountPageLabels = {
     level: 'Рівень володіння мовою',
     role: 'Роль',
 }
-
-export const exercisePageLabels = {
-    type: 'Тип завдання',
-    task: 'Текст завдання',
-    answer: 'Відповідь',
-}

@@ -13,7 +13,7 @@ import {DataTable} from "../../../components/common/DataTable/DataTable";
 import {ArrowForward, Delete, Edit} from "@mui/icons-material";
 import {topicExercisesStyles} from "./topic-exercises.styles";
 import {MoreDropDownMenu} from "../../../components/common/DropDown/MoreDropDownMenu";
-import {MenuOption} from "../../../models/MenuOption";
+import {MenuOption} from "../../../models/Options/MenuOption";
 
 const ExerciseType: Record<number, string> = {
     1: "Translation",

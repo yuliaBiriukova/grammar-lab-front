@@ -6,13 +6,14 @@ import {Link} from "react-router-dom";
 import {ButtonStyled} from "../../common/Button/ButtonStyled";
 import {ButtonVariant} from "../../../utils/enums/button/ButtonVariant";
 import {SelectField} from "../../common/TextField/SelectField";
-import {SelectOption} from "../../../models/SelectOption";
+import {SelectOption} from "../../../models/Options/SelectOption";
 import {LabeledPasswordField} from "../../common/TextField/LabeledPasswordField";
 import { UserRoleString } from "../../../utils/enums/auth/UserRoleString";
 import {UserRole} from "../../../models/User/UserRole";
 import {useAppDispatch, useAppSelector} from "../../../app/hooks";
 import {fetchLevels, selectLevels} from "../../../features/levels/levelsSlice";
 import {getLevelDisplayName} from "../../../utils/helpers/helpers";
+import {formFieldTexts} from "./configs";
 
 export interface UserValidationErrors {
     email: boolean;
@@ -115,64 +116,64 @@ export const UserForm = (props: UserFormProps) => {
                     <Grid item container direction='column' justifyContent="center" rowSpacing={3}>
                         <Grid item>
                             <LabeledTextField
-                                label='Електрона пошта'
+                                label={formFieldTexts.email.label}
                                 value={props.user.email}
-                                placeholder='Введіть електрону пошту'
+                                placeholder={formFieldTexts.email.placeholder}
                                 onChange={handleEmailChange}
                                 required={true}
                                 error={props.validationErrors.email}
-                                errorText={'Електронна пошта обов\'язкова'}
+                                errorText={formFieldTexts.email.error}
                             />
                         </Grid>
-                        { props.hasPassword && props.user.password && (
+                        {props.hasPassword && (
                             <Grid item>
                                 <LabeledPasswordField
-                                    label='Пароль'
-                                    value={props.user.password}
-                                    placeholder='Введіть пароль'
+                                    label={formFieldTexts.password.label}
+                                    value={props.user.password || ''}
+                                    placeholder={formFieldTexts.password.placeholder}
                                     onChange={handlePasswordChange}
                                     required={true}
                                     error={props.validationErrors.password}
-                                    errorText={'Пароль обов\'язковий'}
+                                    errorText={formFieldTexts.password.error}
                                 />
                             </Grid>
                         )}
                         <Grid item>
                             <LabeledTextField
-                                label={'Ім\'я'}
+                                label={formFieldTexts.firstName.label}
                                 value={props.user.firstName || ''}
-                                placeholder={'Введіть ім\'я'}
+                                placeholder={formFieldTexts.firstName.placeholder}
                                 onChange={handleFirstNameChange}
                                 required={false}
                             />
                         </Grid>
                         <Grid item>
                             <LabeledTextField
-                                label='Прізвище'
+                                label={formFieldTexts.lastName.label}
                                 value={props.user.lastName || ''}
-                                placeholder={'Введіть прізвище'}
+                                placeholder={formFieldTexts.lastName.placeholder}
                                 onChange={handleLastNameChange}
                                 required={false}
                             />
                         </Grid>
                         <Grid item>
                             <SelectField
-                                label='Роль'
+                                label={formFieldTexts.role.label}
                                 value={initialRole}
                                 selectOptions={roles}
-                                placeholder='Виберіть роль'
+                                placeholder={formFieldTexts.role.placeholder}
                                 onChange={handleRoleChange}
                                 required={true}
                                 error={props.validationErrors.role}
-                                errorText={'Роль обов\'язкова'}
+                                errorText={formFieldTexts.role.error}
                             />
                         </Grid>
                         <Grid item>
                             <SelectField
-                                label='Рівень'
+                                label={formFieldTexts.level.label}
                                 value={initialLevel}
                                 selectOptions={levelsOptions}
-                                placeholder='Виберіть рівень'
+                                placeholder={formFieldTexts.level.placeholder}
                                 onChange={handleLevelIdChange}
                                 required={false}
                             />

@@ -7,14 +7,8 @@ import {addUserAsync} from "../../../services/user.service";
 import {useNavigate} from "react-router-dom";
 import {checkIsStringEmpty} from "../../../utils/helpers/helpers";
 
-const initialUser: NewUser = {
-    email: '',
-    password: '',
-    role: undefined,
-};
-
 export const AddUserPage = () => {
-    const [user, setUser] = useState<NewUser>(initialUser);
+    const [user, setUser] = useState<NewUser>({} as NewUser);
     const [validationErrors, setValidationErrors] = useState<UserValidationErrors>({
         email: false,
         password: false,

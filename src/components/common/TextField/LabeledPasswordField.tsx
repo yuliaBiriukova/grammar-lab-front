@@ -34,5 +34,5 @@ export const LabeledPasswordField = (props : LabeledPasswordFieldProps) => {
                 />
             </Grid>
         </Grid>
-    )
+    );
 }

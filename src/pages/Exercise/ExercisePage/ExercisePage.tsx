@@ -7,10 +7,10 @@ import {UserRoleString} from "../../../utils/enums/auth/UserRoleString";
 import {routes} from "../../../constants/routes";
 import {deleteExerciseById, getExerciseById} from "../../../services/exercise.service";
 import {LabeledTextDisplay} from "../../../components/common/LabledTextDisplay/LabeledTextDisplay";
-import {exercisePageLabels} from "../../../constants/labels";
+import {exercisePageLabels} from "./configs";
 import { ExerciseType } from "../../../models/Exercise/ExerciseType";
 import {MoreDropDownMenu} from "../../../components/common/DropDown/MoreDropDownMenu";
-import {MenuOption} from "../../../models/MenuOption";
+import {MenuOption} from "../../../models/Options/MenuOption";
 import {Delete, Edit} from "@mui/icons-material";
 
 export const ExercisePage = () => {

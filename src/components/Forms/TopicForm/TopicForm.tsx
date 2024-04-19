@@ -4,6 +4,7 @@ import {Link} from "react-router-dom";
 import {ButtonStyled} from "../../common/Button/ButtonStyled";
 import {ButtonVariant} from "../../../utils/enums/button/ButtonVariant";
 import {LabeledTextField} from "../../common/TextField/LabeledTextField";
+import { formFieldTexts } from "./configs";
 
 interface TopicValidationErrors {
     name: boolean;
@@ -47,24 +48,24 @@ export const TopicForm = (props : TopicFormProps) => {
                     <Grid item container direction='column' justifyContent="center" rowSpacing={3}>
                         <Grid item>
                             <LabeledTextField
-                                label='Назва'
+                                label={formFieldTexts.name.label}
                                 value={props.name}
-                                placeholder='Введіть назву теми'
+                                placeholder={formFieldTexts.name.placeholder}
                                 onChange={handleNameChange}
                                 required={true}
                                 error={props.validationErrors.name}
-                                errorText={'Назва теми обов\'язкова'}
+                                errorText={formFieldTexts.name.error}
                             />
                         </Grid>
                         <Grid item>
                             <LabeledTextField
-                                label='Контент'
+                                label={formFieldTexts.content.label}
                                 value={props.content}
-                                placeholder='Введіть контент теми'
+                                placeholder={formFieldTexts.content.placeholder}
                                 onChange={handleContentChange}
                                 required={true}
                                 error={props.validationErrors.content}
-                                errorText={'Контент теми обов\'язковий'}
+                                errorText={formFieldTexts.content.error}
                             />
                         </Grid>
                     </Grid>
