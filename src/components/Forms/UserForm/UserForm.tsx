@@ -44,8 +44,8 @@ export const UserForm = (props: UserFormProps) => {
         {name: getLevelDisplayName(level.code, level.name), value: level.id}
     ));
 
-    const initialRole = props.user.role?.toString() || 'Виберіть роль';
-    const initialLevel = props.user.levelId || 'Виберіть рівень';
+    const initialRole = props.user.role?.toString() || 'Select role';
+    const initialLevel = props.user.levelId || 'Select level';
 
     const dispatch = useAppDispatch();
 
@@ -185,13 +185,13 @@ export const UserForm = (props: UserFormProps) => {
                 <Grid item>
                     <Link to={props.goBackLink}>
                         <ButtonStyled variant={ButtonVariant.Outlined}>
-                            Назад
+                            Back
                         </ButtonStyled>
                     </Link>
                 </Grid>
                 <Grid item>
                     <ButtonStyled variant={ButtonVariant.Contained} onClick={props.handleSubmit}>
-                        Зберегти
+                        Save
                     </ButtonStyled>
                 </Grid>
             </Grid>

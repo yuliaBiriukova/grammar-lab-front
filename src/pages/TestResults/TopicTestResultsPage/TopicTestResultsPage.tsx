@@ -50,17 +50,16 @@ export const TopicTestResultsPage = () => {
             field: 'id',
             headerName: '№',
             width: 64,
-            /*renderCell: params => params.api.getRowIndexRelativeToVisibleRows(params.row.id) + 1,*/
         },
         {
             field: 'dateCompleted',
-            headerName: 'Дата проходження',
+            headerName: 'Pass date',
             flex: 1,
             renderCell: params => formatDateToString(params.row.dateCompleted),
         },
         {
             field: 'percentage',
-            headerName: 'Оцінка',
+            headerName: 'Grade',
             width: 104,
             renderCell: params => `${params.row.percentage}%`,
         },
@@ -72,7 +71,7 @@ export const TopicTestResultsPage = () => {
             align: 'center',
             renderCell: (params) => (
                 <RouterLink to={routes.testResults.view.url(params.row.id)} >
-                    <ButtonStyled endIcon={<ArrowForward />} sx={testResultsStyles.button}>Переглянути</ButtonStyled>
+                    <ButtonStyled endIcon={<ArrowForward />} sx={testResultsStyles.button}>Review</ButtonStyled>
                 </RouterLink>
             ),
         },
@@ -87,11 +86,11 @@ export const TopicTestResultsPage = () => {
                 <Grid item width='100%'>
                     {
                         testResults.length === 0 ? (
-                            <Typography variant='body1'>Ви ще не проходити тести з цієї теми.</Typography>
+                            <Typography variant='body1'>You have not taken any tests at this topic yet.</Typography>
                         ) : (
                             <Grid item container direction='column' rowSpacing={3}>
                                 <Grid item>
-                                    <Typography variant='body1'>Всі результати проходження тестів з теми.</Typography>
+                                    <Typography variant='body1'>All test results on the topic.</Typography>
                                 </Grid>
                                 <Grid item>
                                     <DataTable rows={testResults} columns={columns}/>

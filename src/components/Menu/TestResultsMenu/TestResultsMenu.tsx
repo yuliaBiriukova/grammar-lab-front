@@ -24,7 +24,7 @@ export const TestResultsMenu = () => {
                 <Grid item>
                     <Link variant='h3' component={RouterLink} to={routes.testResults.all}>
                         <Typography variant='h3'>
-                            Результати тестів
+                            Test results
                         </Typography>
                     </Link>
                 </Grid>

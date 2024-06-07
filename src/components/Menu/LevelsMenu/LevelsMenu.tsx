@@ -37,7 +37,7 @@ export const LevelsMenu = () => {
                     <Grid item>
                         <Link variant='h3' component={RouterLink} to={routes.home}>
                             <Typography variant='h3'>
-                                Каталог рівнів
+                                Levels catalog
                             </Typography>
                         </Link>
                     </Grid>

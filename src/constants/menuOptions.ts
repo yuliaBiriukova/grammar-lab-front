@@ -1,4 +1,4 @@
 export const editDeleteOptions = [
-    'Редагувати',
-    'Видалити',
+    'Edit',
+    'Delete',
 ];

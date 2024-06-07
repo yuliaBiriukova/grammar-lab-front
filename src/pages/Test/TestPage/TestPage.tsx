@@ -107,12 +107,12 @@ export const TestPage = () => {
                         ) : (
                             <Grid container direction='column' rowSpacing={4}>
                                 <Grid item>
-                                    <Typography variant='body1'>Проходження тесту з цієї теми недоступне. Тема ще не має завдань для виконання.</Typography>
+                                    <Typography variant='body1'>The test on this topic is unavailable. The topic does not have exercises for completion.</Typography>
                                 </Grid>
                                 <Grid item>
                                     <RouterLink to={routes.topics.view.url(topic.id)}>
                                         <ButtonStyled variant={ButtonVariant.Contained}>
-                                            Повернутися до теми
+                                            Back to topic
                                         </ButtonStyled>
                                     </RouterLink>
                                 </Grid>

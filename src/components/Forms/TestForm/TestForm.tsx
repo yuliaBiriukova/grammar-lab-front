@@ -64,7 +64,7 @@ export const TestForm = ( props  : TestFormProps) => {
                                         <LabeledTextField
                                             label={`${exerciseIndex++}. ${exercise.task}`}
                                             value={props.userAnswers.get(exercise.id) ?? ''}
-                                            placeholder='Введіть правильну відповідь'
+                                            placeholder='Enter the answer'
                                             onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleChange(exercise.id, e.target.value)}
                                             required
                                             error={props.validationErrors.includes(exercise.id)}
@@ -77,19 +77,10 @@ export const TestForm = ( props  : TestFormProps) => {
                     </Grid>
                 </form>
             </Grid>
-            <Grid item container columnSpacing={3}>
-                <Grid item>
-                    <Link to={props.goBackLink}>
-                        <ButtonStyled variant={ButtonVariant.Outlined}>
-                            До теми
-                        </ButtonStyled>
-                    </Link>
-                </Grid>
-                <Grid item>
-                    <ButtonStyled variant={ButtonVariant.Contained} onClick={props.handleSubmit}>
-                        Зберегти
-                    </ButtonStyled>
-                </Grid>
+            <Grid item>
+                <ButtonStyled variant={ButtonVariant.Contained} onClick={props.handleSubmit}>
+                    Check answers
+                </ButtonStyled>
             </Grid>
         </Grid>
     );

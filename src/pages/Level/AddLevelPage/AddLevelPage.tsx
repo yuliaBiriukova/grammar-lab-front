@@ -53,7 +53,7 @@ export const AddLevelPage = () => {
     return(
         <Grid item container direction='column' rowSpacing={4} xs>
             <Grid item>
-                <Typography variant='h1'>Новий рівень</Typography>
+                <Typography variant='h1'>New level</Typography>
             </Grid>
             <Grid item>
                 <LevelForm

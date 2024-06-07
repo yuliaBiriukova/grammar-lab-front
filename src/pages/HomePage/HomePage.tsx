@@ -29,35 +29,36 @@ export const HomePage = () => {
             <Grid container direction='column' rowSpacing='40px'>
                 <Grid item container direction='column' rowSpacing={3}>
                     <Grid item>
-                        <Typography variant='h1'>Граматика з GrammarLab</Typography>
+                        <Typography variant='h1'>Grammar from GrammarLab</Typography>
                     </Grid>
                     <Grid item container rowSpacing={2}>
                         <Grid item>
                             <Typography variant='body1'>
-                                Ваш поточний рівень володіння англійською мовою&nbsp;-&nbsp;<strong>{userLevelCode}</strong>.
+                                Your current level of English: <strong>{userLevelCode}</strong>.
                             </Typography>
                         </Grid>
                         <Grid item>
                             <Typography variant='body1'>
-                                Оберіть з каталогу рівнів ваш рівень та вивчайте теми граматики, визначені в ньому.
+                                Choose your level from the level catalog and study the grammar topics defined in it.
                             </Typography>
                         </Grid>
                         <Grid item>
                             <Typography variant='body1'>
-                                Проходьте тест з кожної теми для практики вивченого. Після кожного тесту ви побачите свою оцінку у відсотках, правильні та неправильні відповіді.
+                                Take a test on each topic to practice what you have learned. After each test, you will see your score in percentage, correct and incorrect answers.
                             </Typography>
                         </Grid>
                         <Grid item>
                             <Typography variant='body1'>
-                                Задовільна оцінка проходження тесту&nbsp;-&nbsp;<strong>90%</strong>.
+                            Satisfactory grade of passing the test: <strong>90%</strong>.
                             </Typography>
                         </Grid>
                         <Grid item>
                             <Typography variant='body1'>
-                                У разі незадовільної для Вас оцінки Ви можете пройти тест ще раз. Результати пройдених тестів ви знайдете в розділі&nbsp;
+                                If you are not satisfied with the grade, you can take the test again. You will find the results of the passed tests in the&nbsp;
                                 <Link component={RouterLink} to={routes.testResults.all} sx={homeStyles.link}>
-                                    Мої результати.
+                                    My results
                                 </Link>
+                                &nbsp;section
                             </Typography>
                         </Grid>
                     </Grid>

@@ -1,12 +1,12 @@
 export const formFieldTexts = {
     code: {
-        label: 'Код',
-        placeholder: 'Введіть код рівня',
-        error: 'Код рівня обов\'язковий',
+        label: 'Code',
+        placeholder: 'Enter level code',
+        error: 'Level code is required',
     },
     name: {
-        label: 'Назва',
-        placeholder: 'Введіть назву рівня',
-        error: 'Назва рівня обов\'язкова',
+        label: 'Name',
+        placeholder: 'Enter level name',
+        error: 'Level name is required',
     },
 };

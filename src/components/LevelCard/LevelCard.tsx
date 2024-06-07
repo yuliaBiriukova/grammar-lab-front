@@ -26,7 +26,7 @@ export const LevelCard = ({ level } : LevelCardProps) => {
             </Grid>
             <Grid item>
                 <RouterLink to={routes.levels.view.url(level.id)}>
-                    <ButtonStyled variant={ButtonVariant.Text} endIcon={<ArrowForward />}>До рівня</ButtonStyled>
+                    <ButtonStyled variant={ButtonVariant.Text} endIcon={<ArrowForward />}>Go to level</ButtonStyled>
                 </RouterLink>
             </Grid>
         </Grid>

@@ -41,7 +41,7 @@ export const TestResultPage = () => {
         testResult ? (
             <Grid item container direction='column' rowSpacing={4} xs>
                 <Grid item>
-                    <Typography variant='h1'>Результати тесту {testResult.topicName} від {formatDateToString(testResult.dateCompleted)}</Typography>
+                    <Typography variant='h1'>{testResult.topicName} test result from {formatDateToString(testResult.dateCompleted)}</Typography>
                 </Grid>
                 <Grid item container justifyContent='space-between' columnSpacing={4}>
                     <Grid item>

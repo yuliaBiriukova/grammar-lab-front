@@ -66,7 +66,7 @@ export const AddExercisePage = () => {
     return (
         <Grid item container direction='column' rowSpacing={4} xs>
             <Grid item>
-                <Typography variant='h1'>Нове завдання</Typography>
+                <Typography variant='h1'>New exercise</Typography>
             </Grid>
             <Grid item>
                 <ExerciseForm

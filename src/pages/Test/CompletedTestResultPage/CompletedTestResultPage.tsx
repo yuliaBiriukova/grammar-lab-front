@@ -42,8 +42,8 @@ export const CompletedTestResultPage = () => {
     }, []);
 
     const resultLabel = testResult?.percentage! < 90
-        ? 'Результат пройденого тесту незадовільний. Пройдіть тест ще раз.'
-        : 'Результат пройденого тесту задовільний. Ви можете пройти тест ще раз.';
+        ? 'The result of the completed test is unsatisfactory. Please take the test again.'
+        : 'The result of the completed test is satisfactory. You may take the test again.';
 
     const correctAnswersCount = testResult?.testResultExercises
         .filter(e => e.isCorrect)
@@ -57,7 +57,7 @@ export const CompletedTestResultPage = () => {
         testResult ? (
             <Grid item container direction='column' rowSpacing={4} xs>
                 <Grid item>
-                    <Typography variant='h1'>Результати тесту {testResult.topicName}</Typography>
+                    <Typography variant='h1'>Test result {testResult.topicName}</Typography>
                 </Grid>
                 <Grid item container justifyContent='space-between' columnSpacing={4}>
                     <Grid item container direction='column' rowSpacing={3} xs>
@@ -68,11 +68,11 @@ export const CompletedTestResultPage = () => {
                                 </Grid>
                                 <Grid item>
                                     <Typography variant='body1'>
-                                        Результати тесту будуть збережені в розділі&nbsp;
+                                    The test results will be saved in the&nbsp;
                                         <Link component={RouterLink} to={routes.testResults.all} sx={homeStyles.link}>
-                                            Мої результати
+                                            My Results
                                         </Link>
-                                        , де ви зможете передивитися їх пізніше.
+                                        &nbsp;section, where you can review them later.
                                     </Typography>
                                 </Grid>
                             </Grid>
@@ -81,14 +81,14 @@ export const CompletedTestResultPage = () => {
                             <Grid item>
                                 <RouterLink to={routes.topics.test.url(testResult.topicId)}>
                                     <ButtonStyled variant={ButtonVariant.Outlined}>
-                                        Пройти ще раз
+                                        Take test again
                                     </ButtonStyled>
                                 </RouterLink>
                             </Grid>
                             <Grid item>
                                 <RouterLink to={routes.topics.view.url(testResult.topicId)}>
                                     <ButtonStyled variant={ButtonVariant.Contained}>
-                                        До теми
+                                        Back to topic
                                     </ButtonStyled>
                                 </RouterLink>
                             </Grid>

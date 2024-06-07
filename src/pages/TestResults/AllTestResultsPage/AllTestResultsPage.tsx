@@ -34,11 +34,10 @@ export const AllTestResultsPage = () => {
             field: 'id',
             headerName: '№',
             width: 64,
-            /*renderCell: params => params.api.getRowIndexRelativeToVisibleRows(params.row.id) + 1,*/
         },
         {
             field: 'topicName',
-            headerName: 'Тема',
+            headerName: 'Topic',
             flex: 1,
             sortable: false,
             renderCell: (params) => (
@@ -49,13 +48,13 @@ export const AllTestResultsPage = () => {
         },
         {
             field: 'dateCompleted',
-            headerName: 'Дата проходження',
+            headerName: 'Pass date',
             width: 200,
             renderCell: params => formatDateToString(params.row.dateCompleted),
         },
         {
             field: 'percentage',
-            headerName: 'Оцінка',
+            headerName: 'Grade',
             width: 104,
             renderCell: params => `${params.row.percentage}%`,
         },
@@ -67,7 +66,7 @@ export const AllTestResultsPage = () => {
             align: 'center',
             renderCell: (params) => (
                 <RouterLink to={routes.testResults.view.url(params.row.id)} >
-                    <ButtonStyled endIcon={<ArrowForward />} sx={testResultsStyles.button}>Переглянути</ButtonStyled>
+                    <ButtonStyled endIcon={<ArrowForward />} sx={testResultsStyles.button}>Review</ButtonStyled>
                 </RouterLink>
             ),
         },
@@ -77,17 +76,17 @@ export const AllTestResultsPage = () => {
         testResults ? (
             <Grid item container direction='column' rowSpacing={4} xs>
                 <Grid item>
-                    <Typography variant='h1'>Результати пройдених тестів</Typography>
+                    <Typography variant='h1'>Results of passed tests</Typography>
                 </Grid>
                 <Grid item width='100%'>
                     {
                         testResults.length === 0 ? (
-                            <Typography variant='body1'>Ви ще не проходили тестів.</Typography>
+                            <Typography variant='body1'>You have not taken any tests yet.</Typography>
                         ) : (
 
                             <Grid item container direction='column' rowSpacing={3}>
                                 <Grid item>
-                                    <Typography variant='body1'>Всі результати проходження тестів.</Typography>
+                                    <Typography variant='body1'>All test results.</Typography>
                                 </Grid>
                                 <Grid item>
                                     <DataTable rows={testResults} columns={columns}/>

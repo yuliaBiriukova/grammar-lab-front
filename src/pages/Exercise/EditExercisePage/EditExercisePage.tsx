@@ -97,7 +97,7 @@ export const EditExercisePage = () => {
         exercise && isExerciseLoaded ? (
             <Grid item container direction='column' rowSpacing={4} xs>
                 <Grid item>
-                    <Typography variant='h1'>Нове завдання</Typography>
+                    <Typography variant='h1'>Edit exercise</Typography>
                 </Grid>
                 <Grid item>
                     <ExerciseForm

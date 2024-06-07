@@ -10,7 +10,7 @@ export const TestResultExercisesList = ({ testResultExercises } : TestResultExer
     return(
         <Grid container direction='column' rowSpacing={3}>
             <Grid item>
-                <Typography variant='h4'>Ваші відповіді на тест:</Typography>
+                <Typography variant='h4'>You answers to the test:</Typography>
             </Grid>
             { testResultExercises.map((exercise, index) => (
                 <Grid item key={exercise.id}>

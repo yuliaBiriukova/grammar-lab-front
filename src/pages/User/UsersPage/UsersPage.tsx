@@ -36,7 +36,7 @@ export const UsersPage = () => {
                 navigate(routes.users.all);
             }
         } else {
-            setRoleDisplayName('Усі користувачі');
+            setRoleDisplayName('All users');
             setRoleIndex(undefined);
         }
     }, [selectedRoleIndex]);
@@ -71,12 +71,12 @@ export const UsersPage = () => {
     const getMoreOptions = (id: string): MenuOption[] => {
         return [
             {
-                name: 'Редагувати',
+                name: 'Edit',
                 link: routes.users.edit.url(id),
                 icon: <Edit/>
             },
             {
-                name: 'Видалити',
+                name: 'Delete',
                 icon: <Delete/>,
                 onClick: () => handleDeleteClick(id),
             }
@@ -88,34 +88,33 @@ export const UsersPage = () => {
             field: 'id',
             headerName: '№',
             width: 64,
-            /*renderCell: params => params.api.getRowIndexRelativeToVisibleRows(params.row.id) + 1,*/
         },
         {
             field: 'email',
-            headerName: 'Логін',
+            headerName: 'Email',
             flex: 1,
         },
         {
             field: 'firstName',
-            headerName: 'Ім\'я',
+            headerName: 'First name',
             width: 152,
             renderCell: params => params.row.firstName ? params.row.firstName : '-',
         },
         {
             field: 'lastName',
-            headerName: 'Прізвище',
+            headerName: 'Last name',
             width: 152,
             renderCell: params => params.row.lastName ? params.row.lastName : '-',
         },
         {
             field: 'level',
-            headerName: 'Рівень',
+            headerName: 'Level',
             width: 104,
             renderCell: params => params.row.level ? params.row.level.code : '-',
         },
         {
             field: 'roles',
-            headerName: 'Роль',
+            headerName: 'Role',
             width: 112,
             sortComparator: (rolesA, rolesB) => {
                 const rolesAStr = rolesA.join(', ');
@@ -145,14 +144,14 @@ export const UsersPage = () => {
                     </Grid>
                     <Grid item>
                         <RouterLink to={routes.users.new}>
-                            <ButtonStyled variant={ButtonVariant.Contained}>Додати користувача</ButtonStyled>
+                            <ButtonStyled variant={ButtonVariant.Contained}>Add user</ButtonStyled>
                         </RouterLink>
                     </Grid>
                 </Grid>
                 <Grid item width='100%'>
                     {
                         users.length === 0 ? (
-                            <Typography variant='body1'>Користувачів цієї ролі немає.</Typography>
+                            <Typography variant='body1'>There are no users of this role.</Typography>
                         ) : (
                             <Grid item>
                                 <DataTable rows={users} columns={columns}/>

@@ -38,7 +38,7 @@ export const AccountPage = () => {
             <Grid item container justifyContent='center' sx={catalogStyles.container}>
                 <Grid item container direction='column' rowSpacing={4} sx={catalogStyles.content}>
                     <Grid item>
-                        <Typography variant='h1'>Мій акаунт</Typography>
+                        <Typography variant='h1'>My account</Typography>
                     </Grid>
                     <LabeledTextDisplay label={accountPageLabels.email} value={user.email} />
                     <LabeledTextDisplay label={accountPageLabels.firstName} value={user.firstName} />

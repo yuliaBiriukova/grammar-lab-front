@@ -50,12 +50,12 @@ export const LevelPage = () => {
 
     const levelMenuOptions: MenuOption[] = [
         {
-            name: 'Редагувати',
+            name: 'Edit',
             link: routes.levels.edit.url(level?.id as number),
             icon: <Edit/>
         },
         {
-            name: 'Видалити',
+            name: 'Delete',
             icon: <Delete/>,
             onClick: handleDeleteClick,
         }
@@ -72,7 +72,7 @@ export const LevelPage = () => {
                         <Grid item container justifyContent='end' xs={3} columnSpacing={1}>
                             <Grid item>
                                 <RouterLink to={routes.topics.new.url(level.id)}>
-                                    <ButtonStyled variant={ButtonVariant.Contained}>Додати тему</ButtonStyled>
+                                    <ButtonStyled variant={ButtonVariant.Contained}>Add topic</ButtonStyled>
                                 </RouterLink>
                             </Grid>
                             <Grid item>

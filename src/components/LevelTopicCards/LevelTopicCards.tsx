@@ -11,13 +11,13 @@ export const LevelTopicCards = ({ topics } : LevelTopicCardsProps) => {
         topics ? (
             <Grid item container direction='column' rowSpacing={3}>
                 <Grid item>
-                    <Typography variant='h2'>Оберіть тему</Typography>
+                    <Typography variant='h2'>Select topic</Typography>
                 </Grid>
                 { topics.length !== 0 ? (
                     <TopicCardsList topics={topics} />
                 ) : (
                     <Grid item>
-                        <Typography variant='body1'>На цьому рівні ще немає тем.</Typography>
+                        <Typography variant='body1'>There are no topic on this level.</Typography>
                     </Grid>
                 )
                 }

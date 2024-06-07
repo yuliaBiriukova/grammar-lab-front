@@ -24,7 +24,7 @@ export const SearchForm = (props : SearchFormProps) => {
                 <Grid item>
                     <SearchField
                         value={props.query}
-                        placeholder='Введіть назву теми'
+                        placeholder='Enter topic name'
                         onChange={handleQueryChange}
                         handleSubmit={props.handleSubmit}
                     />

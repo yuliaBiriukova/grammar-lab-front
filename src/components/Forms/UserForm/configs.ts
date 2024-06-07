@@ -1,29 +1,29 @@
 export const formFieldTexts  = {
     email: {
-        label: 'Електрона пошта',
-        placeholder: 'Введіть електрону пошту',
-        error: 'Електронна пошта обов\'язкова',
+        label: 'Email',
+        placeholder: 'Enter email',
+        error: 'Email is required',
     },
     password: {
-        label: 'Пароль',
-        placeholder: 'Введіть пароль',
-        error: 'Пароль обов\'язковий',
+        label: 'Password',
+        placeholder: 'Enter password',
+        error: 'Password is required',
     },
     firstName: {
-        label: 'Ім\'я',
-        placeholder: 'Введіть ім\'я',
+        label: 'First Name',
+        placeholder: 'Enter first name',
     },
     lastName: {
-        label: 'Прізвище',
-        placeholder: 'Введіть прізвище',
+        label: 'Last Name',
+        placeholder: 'Enter last name',
     },
     role: {
-        label: 'Роль',
-        placeholder: 'Виберіть роль',
-        error: 'Роль обов\'язкова',
+        label: 'Role',
+        placeholder: 'Select role',
+        error: 'Role is required',
     },
     level: {
-        label: 'Рівень',
-        placeholder: 'Виберіть рівень'
+        label: 'Level',
+        placeholder: 'Select level'
     }
 };

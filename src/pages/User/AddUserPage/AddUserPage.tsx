@@ -58,7 +58,7 @@ export const AddUserPage = () => {
     return (
         <Grid item container direction='column' rowSpacing={4} xs>
             <Grid item>
-                <Typography variant='h1'>Новий користувач</Typography>
+                <Typography variant='h1'>New user</Typography>
             </Grid>
             <Grid item>
                 <UserForm

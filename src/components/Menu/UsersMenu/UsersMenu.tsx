@@ -21,7 +21,7 @@ export const UsersMenu = () => {
                     <Grid item>
                         <Link variant='h3' component={RouterLink} to={routes.users.all}>
                             <Typography variant='h3'>
-                                Користувачі
+                                Users
                             </Typography>
                         </Link>
                     </Grid>
@@ -33,7 +33,7 @@ export const UsersMenu = () => {
                 </Grid>
                 <Grid item>
                     <Link to={routes.users.all} component={RouterLink} sx={allUsersLinkStyle}>
-                        Усі користувачі
+                        All users
                     </Link>
                 </Grid>
                 {

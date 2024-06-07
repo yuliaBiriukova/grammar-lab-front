@@ -47,12 +47,12 @@ export const TopicPage = () => {
 
     const topicMenuOptions: MenuOption[] = [
         {
-            name: 'Редагувати',
+            name: 'Edit',
             link: routes.topics.edit.url(topic?.id as number),
             icon: <Edit/>
         },
         {
-            name: 'Видалити',
+            name: 'Delete',
             icon: <Delete/>,
             onClick: handleDeleteClick,
         }
@@ -69,13 +69,13 @@ export const TopicPage = () => {
                         { isAdmin &&
                             <Grid item>
                                 <RouterLink to={routes.exercises.list.url(topic.id)}>
-                                    <ButtonStyled variant={ButtonVariant.Outlined}>Завдання</ButtonStyled>
+                                    <ButtonStyled variant={ButtonVariant.Outlined}>Exercises</ButtonStyled>
                                 </RouterLink>
                             </Grid>
                         }
                         <Grid item>
                             <RouterLink to={routes.topics.test.url(topic.id)}>
-                                <ButtonStyled variant={ButtonVariant.Contained}>Пройти тест</ButtonStyled>
+                                <ButtonStyled variant={ButtonVariant.Contained}>Take test</ButtonStyled>
                             </RouterLink>
                         </Grid>
                         { isAdmin &&
@@ -91,15 +91,15 @@ export const TopicPage = () => {
                 <Grid item>
                     <Grid container direction='column' rowSpacing={3}>
                         <Grid item>
-                            <Typography variant='h2'>Тест</Typography>
+                            <Typography variant='h2'>Test</Typography>
                         </Grid>
                         <Grid item container direction='column' rowSpacing={2}>
                             <Grid item>
-                                <Typography variant='body1'>Пройдіть цей тест, щоб перевірити вивчену граматику.</Typography>
+                                <Typography variant='body1'>Take this test to check the grammar you have learned.</Typography>
                             </Grid>
                             <Grid item>
                                 <RouterLink to={routes.topics.test.url(topic.id)}>
-                                    <ButtonStyled variant={ButtonVariant.Contained}>Пройти тест</ButtonStyled>
+                                    <ButtonStyled variant={ButtonVariant.Contained}>Take test</ButtonStyled>
                                 </RouterLink>
                             </Grid>
                         </Grid>

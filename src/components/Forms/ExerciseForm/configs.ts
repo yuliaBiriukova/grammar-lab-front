@@ -1,17 +1,17 @@
 export const formFieldTexts = {
     type: {
-        label: 'Тип завдання',
-        placeholder: 'Виберіть тип завдання',
-        error: 'Тип завдання обов\'язковий',
+        label: 'Exercise type',
+        placeholder: 'Select exercise type',
+        error: 'Exercise type is required',
     },
     task: {
-        label: 'Текст завдання',
-        placeholder: 'Введіть текст завдання',
-        error: 'Текст завдання обов\'язковий',
+        label: 'Exercise Text',
+        placeholder: 'Enter exercise text',
+        error: 'Exercise text is required',
     },
     answer: {
-        label: 'Відповідь',
-        placeholder: 'Введіть відповідь на завдання',
-        error: 'Відповідь обов\'язкова',
+        label: 'Answer',
+        placeholder: 'Enter answer to the exercise',
+        error: 'Answer is required',
     },
 };

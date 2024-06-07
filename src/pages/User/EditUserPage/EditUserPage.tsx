@@ -93,11 +93,11 @@ export const EditUserPage = () => {
             <Grid item container direction='column' rowSpacing={4} xs>
                 <Grid item container justifyContent='space-between' alignItems='start'>
                     <Grid item>
-                        <Typography variant='h1'>Редагування користувача</Typography>
+                        <Typography variant='h1'>Edit user</Typography>
                     </Grid>
                     <Grid item>
                         <RouterLink to={routes.users.edit.password.url(user.id!)}>
-                            <ButtonStyled variant={ButtonVariant.Outlined}>Змінити пароль</ButtonStyled>
+                            <ButtonStyled variant={ButtonVariant.Outlined}>Change password</ButtonStyled>
                         </RouterLink>
                     </Grid>
                 </Grid>

@@ -22,11 +22,11 @@ const ExerciseType: Record<number, string> = {
 
 export function getExerciseTypeString(index: number | undefined): string {
     if(!index) {
-        return 'Не визначений';
+        return 'Undefined';
     }
 
     const status = ExerciseType[index];
-    return status !== undefined ? status : 'Не визначений';
+    return status !== undefined ? status : 'Undefined';
 }
 
 export const TopicExercisesPage = () => {
@@ -66,12 +66,12 @@ export const TopicExercisesPage = () => {
     const getMoreOptions = (id: number): MenuOption[] => {
         return [
             {
-                name: 'Редагувати',
+                name: 'Edit',
                 link: routes.exercises.edit.url(id),
                 icon: <Edit/>
             },
             {
-                name: 'Видалити',
+                name: 'Delete',
                 icon: <Delete/>,
                 onClick: () => handleDeleteClick(id),
             }
@@ -83,17 +83,16 @@ export const TopicExercisesPage = () => {
             field: 'id',
             headerName: '№',
             width: 64,
-            renderCell: params => params.api.getRowIndexRelativeToVisibleRows(params.row.id) + 1,
         },
         {
             field: 'task',
-            headerName: 'Завдання',
+            headerName: 'Exercise',
             flex: 1,
             sortable: false,
         },
         {
             field: 'type',
-            headerName: 'Тип',
+            headerName: 'Type',
             width: 168,
             renderCell: params => getExerciseTypeString(params.row.type),
         },
@@ -105,7 +104,7 @@ export const TopicExercisesPage = () => {
             align: 'center',
             renderCell: (params) => (
                 <RouterLink to={routes.exercises.view.url(params.row.id)} >
-                    <ButtonStyled endIcon={<ArrowForward />} sx={topicExercisesStyles.button}>Переглянути</ButtonStyled>
+                    <ButtonStyled endIcon={<ArrowForward />} sx={topicExercisesStyles.button}>Review</ButtonStyled>
                 </RouterLink>
             ),
         },
@@ -126,11 +125,11 @@ export const TopicExercisesPage = () => {
             <Grid item container direction='column' rowSpacing='40px' xs>
                 <Grid item container justifyContent='space-between' alignItems='center'>
                     <Grid item>
-                        <Typography variant='h1'>Завдання з теми&nbsp;{topic.name}</Typography>
+                        <Typography variant='h1'>{topic.name} exercises</Typography>
                     </Grid>
                     <Grid item>
                         <RouterLink to={routes.exercises.new.url(topic.id as number)}>
-                            <ButtonStyled variant={ButtonVariant.Contained}>Додати завдання</ButtonStyled>
+                            <ButtonStyled variant={ButtonVariant.Contained}>Add exercise</ButtonStyled>
                         </RouterLink>
                     </Grid>
                 </Grid>
@@ -139,7 +138,7 @@ export const TopicExercisesPage = () => {
                         <DataTable rows={exercises} columns={columns}/>
                     }
                     { exercises.length === 0 &&
-                        <Typography variant='body1'>У цієї теми немає завдань.</Typography>
+                        <Typography variant='body1'>There are no exercises for this topic.</Typography>
                     }
                 </Grid>
             </Grid>

@@ -75,7 +75,7 @@ export const LoginForm = (props: LoginFormProps) => {
                         </Grid>
                         <Grid item>
                             <ButtonStyled variant={ButtonVariant.Contained} onClick={props.handleSubmit} fullWidth>
-                                Увійти
+                                Log in
                             </ButtonStyled>
                         </Grid>
                     </Grid>

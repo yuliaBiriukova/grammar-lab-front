@@ -1,5 +1,5 @@
 export const userRoleGroupsDisplayNames: { [key: number]: string } = {
-    1: 'Адміністратори',
-    2: 'Викладачі',
-    3: 'Студенти',
+    1: 'Administrators',
+    2: 'Teachers',
+    3: 'Students',
 }

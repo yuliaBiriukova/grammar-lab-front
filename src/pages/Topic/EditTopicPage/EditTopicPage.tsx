@@ -84,7 +84,7 @@ export const EditTopicPage = () => {
         topic && isTopicLoaded ? (
             <Grid item container direction='column' rowSpacing={4} xs>
                 <Grid item>
-                    <Typography variant='h1'>Редагування теми</Typography>
+                    <Typography variant='h1'>Edit topic</Typography>
                 </Grid>
                 <Grid item>
                     <TopicForm

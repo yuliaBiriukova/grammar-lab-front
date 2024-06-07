@@ -57,7 +57,7 @@ export const AddTopicPage = () => {
     return (
         <Grid item container direction='column' rowSpacing={4} xs>
             <Grid item>
-                <Typography variant='h1'>Нова тема</Typography>
+                <Typography variant='h1'>New topic</Typography>
             </Grid>
             <Grid item>
                 <TopicForm

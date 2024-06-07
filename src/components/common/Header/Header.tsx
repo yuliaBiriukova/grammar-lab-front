@@ -35,18 +35,18 @@ export const Header = () => {
                     <Grid item container columnSpacing={3} xs='auto'>
                         <Grid item>
                             <Link to={routes.home} component={RouterLink} >
-                                Граматика
+                                Grammar
                             </Link>
                         </Grid>
                         <Grid item>
                             <Link to={routes.testResults.all} component={RouterLink}>
-                                Мої результати
+                                My result
                             </Link>
                         </Grid>
                         { isAdmin &&
                             <Grid item>
                                 <Link to={routes.users.all} component={RouterLink} >
-                                    Користувачі
+                                    Users
                                 </Link>
                             </Grid>
                         }
@@ -59,12 +59,12 @@ export const Header = () => {
                         </Grid>
                         <Grid item>
                             <Link to={routes.account} component={RouterLink} >
-                                Мій акаунт
+                                My account
                             </Link>
                         </Grid>
                         <Grid item>
                             <Link onClick={onLogoutClick}>
-                                Вийти
+                                Log out
                             </Link>
                         </Grid>
                     </Grid>

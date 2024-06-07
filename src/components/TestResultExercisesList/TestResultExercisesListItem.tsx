@@ -35,7 +35,7 @@ export const TestResultExercisesListItem = ({ testResultExercise, index } : Test
             {
                 !testResultExercise.isCorrect && (
                     <Grid item>
-                        <Typography variant='body1'>Правильна відповідь: {testResultExercise.answer}</Typography>
+                        <Typography variant='body1'>Correct answer: {testResultExercise.answer}</Typography>
                     </Grid>
                 )
             }

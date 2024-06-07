@@ -1,5 +1,5 @@
 export const exercisePageLabels = {
-    type: 'Тип завдання',
-    task: 'Текст завдання',
-    answer: 'Відповідь',
+    type: 'Exercise type',
+    task: 'Exercise text',
+    answer: 'Answer',
 }

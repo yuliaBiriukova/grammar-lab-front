@@ -46,7 +46,7 @@ export const LoginPage = () => {
             }
 
             if(response.status === 400) {
-                setLoginError('Неправильний логін або пароль.');
+                setLoginError('Incorrect login or password.');
                 return;
             }
 
@@ -65,7 +65,7 @@ export const LoginPage = () => {
         <Grid item container justifyContent='center' alignItems='center' sx={loginStyles.container}>
             <Grid item container direction='column' rowSpacing={4} sx={loginStyles.formContainer}>
                 <Grid item>
-                    <Typography variant='h2'>Вхід в акаунт</Typography>
+                    <Typography variant='h2'>Log in to account</Typography>
                 </Grid>
                 <Grid item>
                     <LoginForm

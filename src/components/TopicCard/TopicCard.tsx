@@ -21,7 +21,7 @@ export const TopicCard = ({ topic } : TopicCardProps) => {
             </Grid>
             <Grid item>
                 <RouterLink to={routes.topics.view.url(topic.id)}>
-                    <ButtonStyled variant={ButtonVariant.Text} endIcon={<ArrowForward />}>До теми</ButtonStyled>
+                    <ButtonStyled variant={ButtonVariant.Text} endIcon={<ArrowForward />}>Go to rules</ButtonStyled>
                 </RouterLink>
             </Grid>
         </Grid>

@@ -45,11 +45,10 @@ export const LevelTestResultsPage = () => {
             field: 'id',
             headerName: '№',
             width: 64,
-            /*renderCell: params => params.api.getRowIndexRelativeToVisibleRows(params.row.id) + 1,*/
         },
         {
             field: 'topicName',
-            headerName: 'Тема',
+            headerName: 'Topic',
             flex: 1,
             sortable: false,
             renderCell: (params) => (
@@ -60,13 +59,13 @@ export const LevelTestResultsPage = () => {
         },
         {
             field: 'dateCompleted',
-            headerName: 'Дата проходження',
+            headerName: 'Pass date',
             width: 200,
             renderCell: params => formatDateToString(params.row.dateCompleted),
         },
         {
             field: 'percentage',
-            headerName: 'Краща оцінка',
+            headerName: 'Best grade',
             width: 160,
             renderCell: params => `${params.row.percentage}%`,
         },
@@ -78,7 +77,7 @@ export const LevelTestResultsPage = () => {
             align: 'center',
             renderCell: (params) => (
                 <RouterLink to={routes.testResults.view.url(params.row.id)} >
-                    <ButtonStyled endIcon={<ArrowForward />} sx={testResultsStyles.button}>Переглянути</ButtonStyled>
+                    <ButtonStyled endIcon={<ArrowForward />} sx={testResultsStyles.button}>Review</ButtonStyled>
                 </RouterLink>
             ),
         },
@@ -93,11 +92,11 @@ export const LevelTestResultsPage = () => {
                 <Grid item width='100%'>
                     {
                         testResults.length === 0 ? (
-                            <Typography variant='body1'>Ви ще не проходити тестів на цьому рівні.</Typography>
+                            <Typography variant='body1'>You have not taken any tests at this level yet.</Typography>
                         ) : (
                             <Grid item container direction='column' rowSpacing={3}>
                                 <Grid item>
-                                    <Typography variant='body1'>Кращі результати проходження тестів з тем рівня.</Typography>
+                                    <Typography variant='body1'>The best test results on level topics.</Typography>
                                 </Grid>
                                 <Grid item>
                                     <DataTable rows={testResults} columns={columns}/>

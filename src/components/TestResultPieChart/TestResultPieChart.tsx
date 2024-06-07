@@ -14,11 +14,11 @@ export const TestResultPieChart = ({ correctCount, incorrectCount, percentage } 
     const data = [];
 
     if(correctCount > 0) {
-        data.push({ label: 'Правильні відповіді', value: correctCount, color: colors.bg.success });
+        data.push({ label: 'Correct answers', value: correctCount, color: colors.bg.success });
     }
 
     if(incorrectCount > 0) {
-        data.push({ label: 'Неправильні відповіді', value: incorrectCount, color: colors.bg.error });
+        data.push({ label: 'Incorrect answers', value: incorrectCount, color: colors.bg.error });
     }
 
     return (
@@ -46,7 +46,7 @@ export const TestResultPieChart = ({ correctCount, incorrectCount, percentage } 
             <Grid item container direction='column' rowSpacing={2} width={208}>
                 <Grid item container justifyContent='space-between'>
                     <Grid item>
-                        <Typography variant='body2'>Правильні відповіді</Typography>
+                        <Typography variant='body2'>Correct asnwers</Typography>
                     </Grid>
                     <Grid item>
                         <Typography variant='body2'>{correctCount}</Typography>
@@ -54,7 +54,7 @@ export const TestResultPieChart = ({ correctCount, incorrectCount, percentage } 
                 </Grid>
                 <Grid item container justifyContent='space-between'>
                     <Grid item>
-                        <Typography variant='body2'>Неправильні відповіді</Typography>
+                        <Typography variant='body2'>Incorrect answers</Typography>
                     </Grid>
                     <Grid item>
                         <Typography variant='body2'>{incorrectCount}</Typography>

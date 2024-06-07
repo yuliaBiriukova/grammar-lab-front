@@ -75,7 +75,7 @@ export const EditLevelPage = () => {
         level && isLevelLoaded ? (
             <Grid item container direction='column' rowSpacing={4} xs>
                 <Grid item>
-                    <Typography variant='h1'>Редагування рівня</Typography>
+                    <Typography variant='h1'>Edit level</Typography>
                 </Grid>
                 <Grid item>
                     <LevelForm

@@ -75,13 +75,13 @@ export const LevelForm = (props : LevelFormProps) => {
                 <Grid item>
                     <Link to={props.goBackLink}>
                         <ButtonStyled variant={ButtonVariant.Outlined}>
-                            Назад
+                            Back
                         </ButtonStyled>
                     </Link>
                 </Grid>
                 <Grid item>
                     <ButtonStyled variant={ButtonVariant.Contained} onClick={props.handleSubmit}>
-                        Зберегти
+                        Save
                     </ButtonStyled>
                 </Grid>
             </Grid>

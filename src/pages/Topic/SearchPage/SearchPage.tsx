@@ -44,7 +44,7 @@ export const SearchPage = () => {
     return (
         <Grid item container direction='column' rowSpacing={4} xs>
             <Grid item>
-                <Typography variant='h1'>Пошук тем</Typography>
+                <Typography variant='h1'>Search topics</Typography>
             </Grid>
             <Grid item>
                 <SearchForm
@@ -58,7 +58,7 @@ export const SearchPage = () => {
                     query && topics ? (
                         <Grid item container direction='column' rowSpacing={3}>
                             <Grid item>
-                                <Typography variant='body1'>Результати пошуку за запитом «{query}». Знайдено тем: {topics.length}. </Typography>
+                                <Typography variant='body1'>Search results for «{query}». Topics found: {topics.length}. </Typography>
                             </Grid>
                             {
                                 topics.length ? (
@@ -69,7 +69,7 @@ export const SearchPage = () => {
                             }
                         </Grid>
                     ) : (
-                        <Typography variant='body1'>Результати пошуку з'являться тут.</Typography>
+                        <Typography variant='body1'>Search results will appear here.</Typography>
                     )
                 }
             </Grid>

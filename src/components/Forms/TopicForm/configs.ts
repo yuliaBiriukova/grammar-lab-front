@@ -1,12 +1,12 @@
 export const formFieldTexts = {
     name: {
-        label: 'Назва',
-        placeholder: 'Введіть назву теми',
-        error: 'Назва теми обов\'язкова',
+        label: 'Name',
+        placeholder: 'Enter topic name',
+        error: 'Topic name is required',
     },
     content: {
-        label: 'Контент',
-        placeholder: 'Введіть контент теми',
-        error: 'Контент теми обов\'язковий',
+        label: 'Content',
+        placeholder: 'Enter topic content',
+        error: 'Topic content is required',
     },
-}
+};

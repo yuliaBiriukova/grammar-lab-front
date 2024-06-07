@@ -25,7 +25,7 @@ export const LevelCardsList = () => {
     return (
         <Grid item container direction='column' rowSpacing={3}>
             <Grid item>
-                <Typography variant='h2'>Оберіть рівень</Typography>
+                <Typography variant='h2'>Select level</Typography>
             </Grid>
             <Grid item container direction='column' rowSpacing={2}>
                 {levelCards}

@@ -79,25 +79,25 @@ export const ChangePasswordPage = () => {
         email ? (
             <Grid item container direction='column' rowSpacing={4} xs>
                 <Grid item>
-                    <Typography variant='h1'>Зміна паролю</Typography>
+                    <Typography variant='h1'>Change password</Typography>
                 </Grid>
                 <Grid item>
                     <Grid container direction='column' rowSpacing={4}>
                         <Grid item container direction='column' rowSpacing={3}>
                             <Grid item>
-                                <LabeledTextDisplay label='Електрона пошта' value={email} />
+                                <LabeledTextDisplay label='Email' value={email} />
                             </Grid>
                             <Grid item>
                                 <form>
                                     <Grid item>
                                         <LabeledPasswordField
-                                            label='Новий пароль'
+                                            label='New password'
                                             value={password}
-                                            placeholder='Введіть новий пароль'
+                                            placeholder='Enter new password'
                                             onChange={handlePasswordChange}
                                             required={true}
                                             error={passwordValidationError}
-                                            errorText={'Пароль обов\'язковий'}
+                                            errorText={'Password is required'}
                                         />
                                     </Grid>
                                 </form>
@@ -107,13 +107,13 @@ export const ChangePasswordPage = () => {
                             <Grid item>
                                 <Link to={routes.users.edit.url(id as string)}>
                                     <ButtonStyled variant={ButtonVariant.Outlined}>
-                                        Назад
+                                        Back
                                     </ButtonStyled>
                                 </Link>
                             </Grid>
                             <Grid item>
                                 <ButtonStyled variant={ButtonVariant.Contained} onClick={handleSubmit}>
-                                    Зберегти
+                                    Save
                                 </ButtonStyled>
                             </Grid>
                         </Grid>

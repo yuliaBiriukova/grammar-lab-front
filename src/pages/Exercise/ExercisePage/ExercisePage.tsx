@@ -31,12 +31,12 @@ export const ExercisePage = () => {
 
     const exerciseMenuOptions: MenuOption[] = [
         {
-            name: 'Редагувати',
+            name: 'Edit',
             link: routes.exercises.edit.url(parseInt(id as string)),
             icon: <Edit/>
         },
         {
-            name: 'Видалити',
+            name: 'Delete',
             icon: <Delete/>,
             onClick: handleDeleteClick,
         }
